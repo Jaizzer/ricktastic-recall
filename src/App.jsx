@@ -3,23 +3,88 @@ import { useState } from 'react';
 
 export default function App() {
     const [characters, setCharacters] = useState(null);
+    const [cardCount, setCardCount] = useState(null);
 
-    useEffect(() => {
-        // Obtain randomized IDs of characters to be fetched
-        const characterCount = 25;
-        const randomizedIDs = Array.from({ length: characterCount }, () =>
-            Math.floor(Math.random() * 800)
+    function handleDifficultyClick(event) {
+        // Access the clicked difficulty button
+        const clickedDifficultyButton = event.target;
+
+        // Access the parent of clicked difficulty button
+        const parentOfClickedDifficultyButton =
+            clickedDifficultyButton.parentElement;
+
+        // Access all the children of the parent of clicked difficulty button
+        const childrenOfParentOfClickedDifficultyButton = Array.from(
+            parentOfClickedDifficultyButton.children
         );
 
-        // Build the link
-        const link =
-            'https://rickandmortyapi.com/api/character/' +
-            `[${randomizedIDs}]/`;
+        // Determine the index of the clicked difficulty button
+        const indexOfClickedDifficultyButton =
+            childrenOfParentOfClickedDifficultyButton.indexOf(
+                clickedDifficultyButton
+            );
 
-        fetch(link)
-            .then((response) => response.json())
-            .then((data) => setCharacters(data));
-    }, []);
+        // Determine the number of cards to show base on the index of the clicked diffulty button
+        const numberOfCardsToShow = (indexOfClickedDifficultyButton + 1) * 5;
 
-    return <div></div>;
+        // Set the card count
+        setCardCount(numberOfCardsToShow);
+    }
+
+    useEffect(() => {
+        if (cardCount !== null) {
+            // Obtain randomized IDs of characters to be fetched
+            const randomizedIDs = Array.from({ length: cardCount }, () =>
+                Math.floor(Math.random() * 800)
+            );
+
+            // Build the link
+            const link =
+                'https://rickandmortyapi.com/api/character/' +
+                `[${randomizedIDs}]/`;
+
+            fetch(link)
+                .then((response) => response.json())
+                .then((data) => setCharacters(data));
+        }
+    }, [cardCount]);
+
+    console.log(characters);
+
+    return (
+        <div className="home">
+            <div className="difficulty-selector">
+                <button
+                    className="difficulty-button"
+                    onClick={handleDifficultyClick}
+                >
+                    Meeseeks
+                </button>
+                <button
+                    className="difficulty-button"
+                    onClick={handleDifficultyClick}
+                >
+                    Schiwfty
+                </button>
+                <button
+                    className="difficulty-button"
+                    onClick={handleDifficultyClick}
+                >
+                    Gazorpazorp
+                </button>
+                <button
+                    className="difficulty-button"
+                    onClick={handleDifficultyClick}
+                >
+                    Interdimensional
+                </button>
+                <button
+                    className="difficulty-button"
+                    onClick={handleDifficultyClick}
+                >
+                    EvilMorty
+                </button>
+            </div>
+        </div>
+    );
 }
