@@ -11,7 +11,12 @@ export default function App() {
             Math.floor(Math.random() * 800)
         );
 
-        fetch('https://rickandmortyapi.com/api/character')
+        // Build the link
+        const link =
+            'https://rickandmortyapi.com/api/character/' +
+            `[${randomizedIDs}]/`;
+
+        fetch(link)
             .then((response) => response.json())
             .then((data) => setCharacters(data.results));
     }, []);
