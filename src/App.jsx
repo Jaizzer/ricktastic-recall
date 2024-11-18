@@ -20,6 +20,6 @@ export default function App() {
             .then((response) => response.json())
             .then((data) => setCharacters(data));
     }, []);
-    
+
     return <div></div>;
 }
