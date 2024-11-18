@@ -18,7 +18,7 @@ export default function App() {
 
         fetch(link)
             .then((response) => response.json())
-            .then((data) => setCharacters(data.results));
+            .then((data) => setCharacters(data));
     }, []);
     
     return <div></div>;
