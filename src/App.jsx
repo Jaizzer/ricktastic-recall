@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
+import HomeButton from './HomeButton';
 
 export default function App() {
     const [characters, setCharacters] = useState(null);
@@ -53,6 +54,7 @@ export default function App() {
 
     return (
         <div className="home">
+            <HomeButton></HomeButton>
             <div className="difficulty-selector">
                 <button
                     className="difficulty-button"
