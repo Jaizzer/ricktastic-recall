@@ -53,7 +53,7 @@ export default function App() {
     } else {
         return (
             <div className="home">
-                <HomeButton></HomeButton>
+                <HomeButton handleClick={() => setCharacters(null)}></HomeButton>
                 <div className="difficulty-selector">
                     <button
                         className="difficulty-button"
