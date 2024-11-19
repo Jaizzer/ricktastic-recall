@@ -8,7 +8,16 @@ export default function Deck({ characters }) {
         })
     );
 
-    function updateDeck() {
+    function updateDeck(cardId) {
+        // Find the object corresponding to the clicked card
+        const correspondingObjectOfTheClickedCard = cardCharacters.find(
+            (cardCharacter) => cardCharacter.id === cardId
+        );
+
+        // Increment the card's click count through the corresponding object
+        correspondingObjectOfTheClickedCard.clickCount++;
+
+        // Update the cardCharacters state
         setCardCharacters([...shuffleArray(cardCharacters)]);
     }
 
@@ -19,7 +28,9 @@ export default function Deck({ characters }) {
             <Card
                 imageUrl={imageUrl}
                 key={cardCharacters.id}
-                onClick={updateDeck}
+                onClick={() => {
+                    updateDeck(cardCharacters.id);
+                }}
             ></Card>
         );
     });
