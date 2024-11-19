@@ -42,8 +42,6 @@ export default function App() {
             .then((data) => setCharacters(data));
     }
 
-    console.log(characters);
-
     if (characters) {
         return (
             <>
