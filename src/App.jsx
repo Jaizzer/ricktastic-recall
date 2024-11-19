@@ -46,14 +46,19 @@ export default function App() {
 
     if (characters) {
         return (
-            <>  
+            <>
+                <HomeButton
+                    handleClick={() => setCharacters(null)}
+                ></HomeButton>
                 <Deck characters={characters}></Deck>;
             </>
         );
     } else {
         return (
             <div className="home">
-                <HomeButton handleClick={() => setCharacters(null)}></HomeButton>
+                <HomeButton
+                    handleClick={() => setCharacters(null)}
+                ></HomeButton>
                 <div className="difficulty-selector">
                     <button
                         className="difficulty-button"
