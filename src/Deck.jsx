@@ -8,8 +8,6 @@ export default function Deck({ characters }) {
         })
     );
 
-    console.log(cardCharacters)
-
     function shuffleCharacters() {
         setCardCharacters([...shuffleArray(cardCharacters)]);
     }
