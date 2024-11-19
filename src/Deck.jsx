@@ -1,23 +1,30 @@
 import { useState } from 'react';
 
 export default function Deck({ characters }) {
-    const [cards, setCards] = useState(null);
-    
-    // Create cards on first render
-    if (cards === null) {
-        setCards(
-            characters.map((character) => {
-                const imageUrl = character.image;
-                return <Card imageUrl={imageUrl} key={character.id}></Card>;
-            })
-        );
+    const [cardCharacters, setCardCharacters] = useState(characters);
+
+    function shuffleCharacters() {
+        setCardCharacters([...shuffleArray(cardCharacters)]);
     }
+
+    // Create cards on first render
+    const cards = cardCharacters.map((cardCharacters) => {
+        const imageUrl = cardCharacters.image;
+        return (
+            <Card
+                imageUrl={imageUrl}
+                key={cardCharacters.id}
+                onClick={shuffleCharacters}
+            ></Card>
+        );
+    });
+
     return <div className="deck">{cards}</div>;
 }
 
-function Card({ imageUrl }) {
+function Card({ imageUrl, onClick }) {
     return (
-        <div className="card">
+        <div className="card" onClick={onClick}>
             <img src={imageUrl} />
         </div>
     );
