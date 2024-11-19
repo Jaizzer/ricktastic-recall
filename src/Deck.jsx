@@ -22,3 +22,24 @@ function Card({ imageUrl }) {
         </div>
     );
 }
+
+function shuffleArray(array) {
+    // Use array length to include the last element when generating random index
+    let currentIndex = array.length;
+
+    while (currentIndex !== 0) {
+        // Pick the remaining element
+        let randomIndex = Math.floor(Math.random() * currentIndex);
+
+        // Exclude the previously swapped element
+        currentIndex--;
+
+        // Swap elements
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex],
+            array[currentIndex],
+        ];
+    }
+
+    return array;
+}
