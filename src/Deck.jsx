@@ -7,7 +7,7 @@ export default function Deck({ characters }) {
         setCardCharacters([...shuffleArray(cardCharacters)]);
     }
 
-    // Create cards on first render
+    // Create cards
     const cards = cardCharacters.map((cardCharacters) => {
         const imageUrl = cardCharacters.image;
         return (
