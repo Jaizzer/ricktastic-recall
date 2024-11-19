@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import HomeButton from './HomeButton';
+import Deck from './Deck';
 
 export default function App() {
     const [characters, setCharacters] = useState(null);
@@ -43,41 +44,49 @@ export default function App() {
 
     console.log(characters);
 
-    return (
-        <div className="home">
-            <HomeButton></HomeButton>
-            <div className="difficulty-selector">
-                <button
-                    className="difficulty-button"
-                    onClick={handleDifficultyClick}
-                >
-                    Meeseeks
-                </button>
-                <button
-                    className="difficulty-button"
-                    onClick={handleDifficultyClick}
-                >
-                    Schiwfty
-                </button>
-                <button
-                    className="difficulty-button"
-                    onClick={handleDifficultyClick}
-                >
-                    Gazorpazorp
-                </button>
-                <button
-                    className="difficulty-button"
-                    onClick={handleDifficultyClick}
-                >
-                    Interdimensional
-                </button>
-                <button
-                    className="difficulty-button"
-                    onClick={handleDifficultyClick}
-                >
-                    EvilMorty
-                </button>
+    if (characters) {
+        return (
+            <>  
+                <Deck characters={characters}></Deck>;
+            </>
+        );
+    } else {
+        return (
+            <div className="home">
+                <HomeButton></HomeButton>
+                <div className="difficulty-selector">
+                    <button
+                        className="difficulty-button"
+                        onClick={handleDifficultyClick}
+                    >
+                        Meeseeks
+                    </button>
+                    <button
+                        className="difficulty-button"
+                        onClick={handleDifficultyClick}
+                    >
+                        Schiwfty
+                    </button>
+                    <button
+                        className="difficulty-button"
+                        onClick={handleDifficultyClick}
+                    >
+                        Gazorpazorp
+                    </button>
+                    <button
+                        className="difficulty-button"
+                        onClick={handleDifficultyClick}
+                    >
+                        Interdimensional
+                    </button>
+                    <button
+                        className="difficulty-button"
+                        onClick={handleDifficultyClick}
+                    >
+                        EvilMorty
+                    </button>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
