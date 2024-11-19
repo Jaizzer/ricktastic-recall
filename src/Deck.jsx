@@ -1,7 +1,14 @@
 import { useState } from 'react';
 
 export default function Deck({ characters }) {
-    const [cardCharacters, setCardCharacters] = useState(characters);
+    const [cardCharacters, setCardCharacters] = useState(
+        characters.map((character) => {
+            // Add click count property
+            return { ...character, clickCount: 0 };
+        })
+    );
+
+    console.log(cardCharacters)
 
     function shuffleCharacters() {
         setCardCharacters([...shuffleArray(cardCharacters)]);
