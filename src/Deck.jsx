@@ -8,7 +8,7 @@ export default function Deck({ characters }) {
         })
     );
 
-    function shuffleCharacters() {
+    function updateDeck() {
         setCardCharacters([...shuffleArray(cardCharacters)]);
     }
 
@@ -19,7 +19,7 @@ export default function Deck({ characters }) {
             <Card
                 imageUrl={imageUrl}
                 key={cardCharacters.id}
-                onClick={shuffleCharacters}
+                onClick={updateDeck}
             ></Card>
         );
     });
