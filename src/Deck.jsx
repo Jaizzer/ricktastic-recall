@@ -66,3 +66,13 @@ function shuffleArray(array) {
 
     return array;
 }
+
+function getCurrentScore(cardCharacters) {
+    return (
+        cardCharacters.reduce((accumulator, cardCharacter) => {
+            if (accumulator === null) return null;
+            if (cardCharacter.clickCount >= 2) return null;
+            return accumulator + cardCharacter.clickCount;
+        }, 0) ?? 0
+    );
+}
