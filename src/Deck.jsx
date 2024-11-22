@@ -8,6 +8,8 @@ export default function Deck({ characters }) {
         })
     );
 
+    const [highScore, setHighScore] = useState(0);
+
     function updateDeck(cardId) {
         // Find the object corresponding to the clicked card
         const correspondingObjectOfTheClickedCard = cardCharacters.find(
