@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import HomeButton from './HomeButton';
-import Deck from './Deck';
+import PlayArea from './PlayArea';
 
 export default function App() {
     const [characters, setCharacters] = useState(null);
@@ -48,7 +48,7 @@ export default function App() {
                 <HomeButton
                     handleClick={() => setCharacters(null)}
                 ></HomeButton>
-                <Deck characters={characters}></Deck>;
+                <PlayArea characters={characters}></PlayArea>;
             </>
         );
     } else {

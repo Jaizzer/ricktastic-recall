@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function Deck({ characters }) {
+export default function PlayArea({ characters }) {
     const [cardCharacters, setCardCharacters] = useState(
         characters.map((character) => {
             // Add click count property
@@ -10,7 +10,7 @@ export default function Deck({ characters }) {
 
     const [highScore, setHighScore] = useState(0);
 
-    function updateDeck(cardId) {
+    function updatePlayArea(cardId) {
         // Find the object corresponding to the clicked card
         const correspondingObjectOfTheClickedCard = cardCharacters.find(
             (cardCharacter) => cardCharacter.id === cardId
@@ -31,7 +31,7 @@ export default function Deck({ characters }) {
                 imageUrl={imageUrl}
                 key={cardCharacters.id}
                 onClick={() => {
-                    updateDeck(cardCharacters.id);
+                    updatePlayArea(cardCharacters.id);
                 }}
             ></Card>
         );
