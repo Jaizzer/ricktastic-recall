@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Scoreboard from './Scoreboard';
 
 export default function PlayArea({ characters }) {
     const [cardCharacters, setCardCharacters] = useState(
@@ -39,6 +40,10 @@ export default function PlayArea({ characters }) {
 
     return (
         <div className="play-area">
+            <Scoreboard
+                currentScore={getCurrentScore(cardCharacters)}
+                highScore={highScore}
+            ></Scoreboard>
             <div className="deck">{cards}</div>
         </div>
     );
