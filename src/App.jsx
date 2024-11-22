@@ -27,6 +27,11 @@ export default function App() {
         // Determine the number of cards to show base on the index of the clicked diffulty button
         const numberOfCardsToShow = (indexOfClickedDifficultyButton + 1) * 5;
 
+        // Get the chracters
+        getCharacters(numberOfCardsToShow);
+    }
+
+    function getCharacters(numberOfCardsToShow) {
         // Obtain randomized IDs of characters to be fetched
         const randomizedIDs = Array.from({ length: numberOfCardsToShow }, () =>
             Math.floor(Math.random() * 800)
