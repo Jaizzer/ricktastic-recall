@@ -37,7 +37,11 @@ export default function Deck({ characters }) {
         );
     });
 
-    return <div className="deck">{cards}</div>;
+    return (
+        <div className="play-area">
+            <div className="deck">{cards}</div>
+        </div>
+    );
 }
 
 function Card({ imageUrl, onClick }) {
