@@ -20,6 +20,12 @@ export default function PlayArea({ characters }) {
         // Increment the card's click count through the corresponding object
         correspondingObjectOfTheClickedCard.clickCount++;
 
+        // Update if the high score is beaten
+        const currentScore = getCurrentScore(cardCharacters);
+        if (highScore < currentScore) {
+            setHighScore(currentScore);
+        }
+
         // Update the cardCharacters state
         setCardCharacters([...shuffleArray(cardCharacters)]);
     }
