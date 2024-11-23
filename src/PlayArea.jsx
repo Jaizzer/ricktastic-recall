@@ -44,8 +44,29 @@ export default function PlayArea({ characters }) {
         );
     });
 
+    // Display a Victory or Game Over message depending on the user's score.
+    let popUpMessage;
+    if (highScore !== 0 && getCurrentScore(cardCharacters) === 0) {
+        popUpMessage = (
+            <div className="pop-up-message">
+                <div className="message">Game Over</div>
+                <button className="restart">Restart</button>
+                <button className="menu">Back to Menu</button>
+            </div>
+        );
+    } else if (getCurrentScore(cardCharacters) === cardCharacters.length) {
+        popUpMessage = (
+            <div className="pop-up-message">
+                <div className="message">Victory</div>
+                <button className="restart">Restart</button>
+                <button className="menu">Back to Menu</button>
+            </div>
+        );
+    }
+
     return (
         <div className="play-area">
+            {popUpMessage}
             <Scoreboard
                 currentScore={getCurrentScore(cardCharacters)}
                 highScore={highScore}
