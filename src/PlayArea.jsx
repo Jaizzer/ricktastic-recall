@@ -31,14 +31,14 @@ export default function PlayArea({ characters }) {
     }
 
     // Create cards
-    const cards = cardCharacters.map((cardCharacters) => {
-        const imageUrl = cardCharacters.image;
+    const cards = cardCharacters.map((cardCharacter) => {
+        const imageUrl = cardCharacter.image;
         return (
             <Card
                 imageUrl={imageUrl}
-                key={cardCharacters.id}
+                key={cardCharacter.id}
                 onClick={() => {
-                    updatePlayArea(cardCharacters.id);
+                    updatePlayArea(cardCharacter.id);
                 }}
             ></Card>
         );
