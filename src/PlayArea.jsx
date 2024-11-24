@@ -9,6 +9,7 @@ export default function PlayArea({ newCharacters, requestNewCharacters }) {
         })
     );
 
+    // Track high scores
     const [highScore, setHighScore] = useState(0);
 
     // Get current score
