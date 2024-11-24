@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Scoreboard from './Scoreboard';
 
 export default function PlayArea({ newCharacters, requestNewCharacters }) {
@@ -8,6 +8,14 @@ export default function PlayArea({ newCharacters, requestNewCharacters }) {
             return { ...newCharacter, clickCount: 0 };
         })
     );
+
+    // Use the newly sent newCharacters prop as the currentCharacters
+    useEffect(() => {
+        setCurrentCharacters(newCharacters.map((newCharacter) => {
+            // Add click count property
+            return { ...newCharacter, clickCount: 0 };
+        }));
+    }, [newCharacters]);
 
     // Track high scores
     const [highScore, setHighScore] = useState(0);
