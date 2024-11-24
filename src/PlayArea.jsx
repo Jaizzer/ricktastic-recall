@@ -134,11 +134,9 @@ function shuffleArray(array) {
 }
 
 function getCurrentScore(currentCharacters) {
-    return (
-        currentCharacters.reduce((accumulator, currentCharacter) => {
-            if (accumulator === null) return null;
-            if (currentCharacter.clickCount >= 2) return null;
-            return accumulator + currentCharacter.clickCount;
-        }, 0) ?? 0
-    );
+    return currentCharacters.reduce((accumulator, currentCharacter) => {
+        if (accumulator === null) return null;
+        if (currentCharacter.clickCount >= 2) return null;
+        return accumulator + currentCharacter.clickCount;
+    }, 0);
 }
