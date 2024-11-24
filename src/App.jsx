@@ -64,7 +64,7 @@ export default function App() {
         );
     } else {
         return (
-            <div className="home">
+            <>
                 <HomeButton
                     handleClick={() => setCharacters(null)}
                 ></HomeButton>
@@ -100,7 +100,8 @@ export default function App() {
                         EvilMorty
                     </button>
                 </div>
-            </div>
+                <SoundFXButton></SoundFXButton>
+            </>
         );
     }
 }
