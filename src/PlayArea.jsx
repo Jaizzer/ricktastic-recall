@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Scoreboard from './Scoreboard';
 
 export default function PlayArea({ newCharacters }) {
-    const [cardCharacters, setCardCharacters] = useState(
+    const [currentCharacters, setCurrentCharacters] = useState(
         newCharacters.map((newCharacter) => {
             // Add click count property
             return { ...newCharacter, clickCount: 0 };
@@ -13,32 +13,32 @@ export default function PlayArea({ newCharacters }) {
 
     function updatePlayArea(cardId) {
         // Find the object corresponding to the clicked card
-        const correspondingObjectOfTheClickedCard = cardCharacters.find(
-            (cardCharacter) => cardCharacter.id === cardId
+        const correspondingObjectOfTheClickedCard = currentCharacters.find(
+            (currentCharacter) => currentCharacter.id === cardId
         );
 
         // Increment the card's click count through the corresponding object
         correspondingObjectOfTheClickedCard.clickCount++;
 
         // Update if the high score is beaten
-        const currentScore = getCurrentScore(cardCharacters);
+        const currentScore = getCurrentScore(currentCharacters);
         if (highScore < currentScore) {
             setHighScore(currentScore);
         }
 
-        // Update the cardCharacters state
-        setCardCharacters([...shuffleArray(cardCharacters)]);
+        // Update the currentCharacters state
+        setCurrentCharacters([...shuffleArray(currentCharacters)]);
     }
 
     // Create cards
-    const cards = cardCharacters.map((cardCharacter) => {
-        const imageUrl = cardCharacter.image;
+    const cards = currentCharacters.map((currentCharacter) => {
+        const imageUrl = currentCharacter.image;
         return (
             <Card
                 imageUrl={imageUrl}
-                key={cardCharacter.id}
+                key={currentCharacter.id}
                 onClick={() => {
-                    updatePlayArea(cardCharacter.id);
+                    updatePlayArea(currentCharacter.id);
                 }}
             ></Card>
         );
@@ -46,7 +46,7 @@ export default function PlayArea({ newCharacters }) {
 
     // Display a Victory or Game Over message depending on the user's score.
     let popUpMessage;
-    if (highScore !== 0 && getCurrentScore(cardCharacters) === 0) {
+    if (highScore !== 0 && getCurrentScore(currentCharacters) === 0) {
         popUpMessage = (
             <div className="pop-up-message">
                 <div className="message">Game Over</div>
@@ -54,7 +54,7 @@ export default function PlayArea({ newCharacters }) {
                 <button className="menu">Back to Menu</button>
             </div>
         );
-    } else if (getCurrentScore(cardCharacters) === cardCharacters.length) {
+    } else if (getCurrentScore(currentCharacters) === currentCharacters.length) {
         popUpMessage = (
             <div className="pop-up-message">
                 <div className="message">Victory</div>
@@ -68,7 +68,7 @@ export default function PlayArea({ newCharacters }) {
         <div className="play-area">
             {popUpMessage}
             <Scoreboard
-                currentScore={getCurrentScore(cardCharacters)}
+                currentScore={getCurrentScore(currentCharacters)}
                 highScore={highScore}
             ></Scoreboard>
             <div className="deck">{cards}</div>
@@ -105,12 +105,12 @@ function shuffleArray(array) {
     return array;
 }
 
-function getCurrentScore(cardCharacters) {
+function getCurrentScore(currentCharacters) {
     return (
-        cardCharacters.reduce((accumulator, cardCharacter) => {
+        currentCharacters.reduce((accumulator, currentCharacter) => {
             if (accumulator === null) return null;
-            if (cardCharacter.clickCount >= 2) return null;
-            return accumulator + cardCharacter.clickCount;
+            if (currentCharacter.clickCount >= 2) return null;
+            return accumulator + currentCharacter.clickCount;
         }, 0) ?? 0
     );
 }
