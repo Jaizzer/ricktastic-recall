@@ -53,7 +53,7 @@ export default function App() {
                 <HomeButton
                     handleClick={() => setCharacters(null)}
                 ></HomeButton>
-                <PlayArea newCharacters={characters} requestNewCharacters={() => getCharacters(characters.length)}></PlayArea>;
+                <PlayArea newCharacters={characters} requestNewCharacters={() => getCharacters(characters.length)}></PlayArea>
             </>
         );
     } else {
