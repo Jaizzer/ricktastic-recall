@@ -61,6 +61,7 @@ export default function App() {
                     }
                     goBackToMenu={() => setCharacters(null)}
                 ></PlayArea>
+                <SoundFXButton></SoundFXButton>
             </>
         );
     } else {
