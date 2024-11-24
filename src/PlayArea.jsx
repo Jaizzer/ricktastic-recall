@@ -23,10 +23,12 @@ export default function PlayArea({ newCharacters }) {
         // Increment the card's click count through the corresponding object
         correspondingObjectOfTheClickedCard.clickCount++;
 
-        // Update if the high score is beaten
-        const currentScore = getCurrentScore(currentCharacters);
-        if (highScore < currentScore) {
-            setHighScore(currentScore);
+        // Calculate the currents score that would appear on the next render
+        const nextRenderCurrentScore = getCurrentScore(currentCharacters);
+
+        // Update if the high score is beaten by the next render current score
+        if (highScore < nextRenderCurrentScore) {
+            setHighScore(nextRenderCurrentScore);
         }
 
         // Update the currentCharacters state
