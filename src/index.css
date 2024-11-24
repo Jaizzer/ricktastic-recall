@@ -1,0 +1,17 @@
+.deck {
+    width: 80%;
+
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 5px;
+
+    justify-content: center;
+}
+
+.card {
+    width: 150px;
+}
+
+.card img {
+    width: 100%;
+}
