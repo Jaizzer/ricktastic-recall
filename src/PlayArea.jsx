@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import Scoreboard from './Scoreboard';
 
-export default function PlayArea({ characters }) {
+export default function PlayArea({ newCharacters }) {
     const [cardCharacters, setCardCharacters] = useState(
-        characters.map((character) => {
+        newCharacters.map((newCharacter) => {
             // Add click count property
-            return { ...character, clickCount: 0 };
+            return { ...newCharacter, clickCount: 0 };
         })
     );
 
