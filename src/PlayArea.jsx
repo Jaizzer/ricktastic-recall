@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
 import Scoreboard from './Scoreboard';
 
-export default function PlayArea({ newCharacters, requestNewCharacters, goBackToMenu }) {
+export default function PlayArea({
+    newCharacters,
+    requestNewCharacters,
+    goBackToMenu,
+}) {
     const [currentCharacters, setCurrentCharacters] = useState(
         newCharacters.map((newCharacter) => {
             // Add click count property
@@ -11,10 +15,12 @@ export default function PlayArea({ newCharacters, requestNewCharacters, goBackTo
 
     // Use the newly sent newCharacters prop as the currentCharacters
     useEffect(() => {
-        setCurrentCharacters(newCharacters.map((newCharacter) => {
-            // Add click count property
-            return { ...newCharacter, clickCount: 0 };
-        }));
+        setCurrentCharacters(
+            newCharacters.map((newCharacter) => {
+                // Add click count property
+                return { ...newCharacter, clickCount: 0 };
+            })
+        );
     }, [newCharacters]);
 
     // Track high scores
@@ -67,7 +73,9 @@ export default function PlayArea({ newCharacters, requestNewCharacters, goBackTo
                 <button className="restart" onClick={requestNewCharacters}>
                     Restart
                 </button>
-                <button className="menu" onClick={goBackToMenu}>Back to Menu</button>
+                <button className="menu" onClick={goBackToMenu}>
+                    Back to Menu
+                </button>
             </div>
         );
     } else if (currentScore === currentCharacters.length) {
@@ -77,7 +85,9 @@ export default function PlayArea({ newCharacters, requestNewCharacters, goBackTo
                 <button className="restart" onClick={requestNewCharacters}>
                     Restart
                 </button>
-                <button className="menu" onClick={goBackToMenu}>Back to Menu</button>
+                <button className="menu" onClick={goBackToMenu}>
+                    Back to Menu
+                </button>
             </div>
         );
     }
