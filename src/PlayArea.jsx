@@ -11,6 +11,9 @@ export default function PlayArea({ newCharacters }) {
 
     const [highScore, setHighScore] = useState(0);
 
+    // Get current score
+    let currentScore = getCurrentScore(currentCharacters);
+
     function updatePlayArea(cardId) {
         // Find the object corresponding to the clicked card
         const correspondingObjectOfTheClickedCard = currentCharacters.find(
@@ -46,7 +49,7 @@ export default function PlayArea({ newCharacters }) {
 
     // Display a Victory or Game Over message depending on the user's score.
     let popUpMessage;
-    if (highScore !== 0 && getCurrentScore(currentCharacters) === 0) {
+    if (highScore !== 0 && currentScore === 0) {
         popUpMessage = (
             <div className="pop-up-message">
                 <div className="message">Game Over</div>
@@ -54,7 +57,7 @@ export default function PlayArea({ newCharacters }) {
                 <button className="menu">Back to Menu</button>
             </div>
         );
-    } else if (getCurrentScore(currentCharacters) === currentCharacters.length) {
+    } else if (currentScore === currentCharacters.length) {
         popUpMessage = (
             <div className="pop-up-message">
                 <div className="message">Victory</div>
@@ -68,7 +71,7 @@ export default function PlayArea({ newCharacters }) {
         <div className="play-area">
             {popUpMessage}
             <Scoreboard
-                currentScore={getCurrentScore(currentCharacters)}
+                currentScore={currentScore}
                 highScore={highScore}
             ></Scoreboard>
             <div className="deck">{cards}</div>
