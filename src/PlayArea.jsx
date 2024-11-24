@@ -66,7 +66,7 @@ export default function PlayArea({
 
     // Display a Victory or Game Over message depending on the user's score.
     let popUpMessage;
-    if (highScore !== 0 && currentScore === 0) {
+    if (highScore !== 0 && currentScore === null) {
         popUpMessage = (
             <div className="pop-up-message">
                 <div className="message">Game Over</div>
