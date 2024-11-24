@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import HomeButton from './HomeButton';
 import PlayArea from './PlayArea';
+import SoundFXButton from './SoundFxButton';
 
 export default function App() {
     const [characters, setCharacters] = useState(null);
