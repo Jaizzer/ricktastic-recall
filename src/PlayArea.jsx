@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Scoreboard from './Scoreboard';
 
-export default function PlayArea({ newCharacters }) {
+export default function PlayArea({ newCharacters, requestNewCharacters }) {
     const [currentCharacters, setCurrentCharacters] = useState(
         newCharacters.map((newCharacter) => {
             // Add click count property
@@ -55,7 +55,9 @@ export default function PlayArea({ newCharacters }) {
         popUpMessage = (
             <div className="pop-up-message">
                 <div className="message">Game Over</div>
-                <button className="restart">Restart</button>
+                <button className="restart" onClick={requestNewCharacters}>
+                    Restart
+                </button>
                 <button className="menu">Back to Menu</button>
             </div>
         );
@@ -63,7 +65,9 @@ export default function PlayArea({ newCharacters }) {
         popUpMessage = (
             <div className="pop-up-message">
                 <div className="message">Victory</div>
-                <button className="restart">Restart</button>
+                <button className="restart" onClick={requestNewCharacters}>
+                    Restart
+                </button>
                 <button className="menu">Back to Menu</button>
             </div>
         );
