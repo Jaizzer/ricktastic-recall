@@ -46,7 +46,14 @@ export default function App() {
 
         fetch(link)
             .then((response) => response.json())
-            .then((data) => setCharacters(data));
+            .then((data) => {
+                // Ensure that the right number of data was received
+                if (data.length === numberOfCardsToShow) {
+                    setCharacters(data);
+                } else {
+                    getCharacters(numberOfCardsToShow)
+                }
+            });
     }
 
     if (characters) {
