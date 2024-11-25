@@ -3,7 +3,7 @@ import backgroundMusic from './assets/background-music.mp3';
 
 export default function BackgroundMusicButton() {
     const [isPlaying, setIsPlaying] = useState(false);
-    const backgroundMusicRef = useRef(null);
+    const backgroundMusicRef = useRef(new Audio(backgroundMusic));
 
     function handleClick() {
         if (backgroundMusicRef.current.paused) {
@@ -17,19 +17,9 @@ export default function BackgroundMusicButton() {
 
     return (
         <>
-            <button
-                className="bg-music-switch"
-                onClick={handleClick}
-            >
+            <button className="bg-music-switch" onClick={handleClick}>
                 {isPlaying ? 'Pause Music' : 'Play Music'}
             </button>
-            <audio
-                ref={backgroundMusicRef}
-                src={backgroundMusic}
-                loop={true}
-                preload="auto"
-                autoPlay={false}
-            ></audio>
         </>
     );
 }
