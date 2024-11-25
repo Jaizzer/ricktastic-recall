@@ -2,6 +2,7 @@ import { useState } from 'react';
 import HomeButton from './HomeButton';
 import PlayArea from './PlayArea';
 import SoundFXButton from './SoundFxButton';
+import Instruction from './Instruction';
 
 export default function App() {
     const [characters, setCharacters] = useState(null);
@@ -62,6 +63,7 @@ export default function App() {
                     goBackToMenu={() => setCharacters(null)}
                 ></PlayArea>
                 <SoundFXButton></SoundFXButton>
+                <Instruction></Instruction>
             </>
         );
     } else {
@@ -103,6 +105,7 @@ export default function App() {
                     </button>
                 </div>
                 <SoundFXButton></SoundFXButton>
+                <Instruction></Instruction>
             </>
         );
     }
