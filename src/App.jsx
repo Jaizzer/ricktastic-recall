@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import HomeButton from './HomeButton';
 import PlayArea from './PlayArea';
-import SoundFXButton from './SoundFxButton';
+import BackgroundMusicButton from './BackgroundMusicButton';
 import Instruction from './Instruction';
 
 export default function App() {
@@ -69,7 +69,7 @@ export default function App() {
                     }
                     goBackToMenu={() => setCharacters(null)}
                 ></PlayArea>
-                <SoundFXButton></SoundFXButton>
+                <BackgroundMusicButton></BackgroundMusicButton>
                 <Instruction></Instruction>
             </>
         );
@@ -111,7 +111,7 @@ export default function App() {
                         EvilMorty
                     </button>
                 </div>
-                <SoundFXButton></SoundFXButton>
+                <BackgroundMusicButton></BackgroundMusicButton>
                 <Instruction></Instruction>
             </>
         );

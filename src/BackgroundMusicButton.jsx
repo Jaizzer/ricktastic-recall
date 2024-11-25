@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import backgroundMusic from './assets/background-music.mp3';
 
-export default function SoundFXButton() {
+export default function BackgroundMusicButton() {
     const [isPlaying, setIsPlaying] = useState(false);
     const backgroundMusicRef = useRef(null);
 
