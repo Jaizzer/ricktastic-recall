@@ -21,7 +21,7 @@ export default function SoundFXButton() {
                 className="bg-music-switch"
                 onClick={handleClick}
             >
-                {isPlaying ? 'Pause' : 'Play'}
+                {isPlaying ? 'Pause Music' : 'Play Music'}
             </button>
             <audio
                 ref={backgroundMusicRef}
