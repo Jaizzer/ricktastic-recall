@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import backgroundMusic from './assets/background-music.mp3';
 
 export default function SoundFXButton() {
-    const [isPlaying, setIsPlaying] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(false);
     const backgroundMusicRef = useRef(null);
 
     function handleClick() {
@@ -28,7 +28,7 @@ export default function SoundFXButton() {
                 src={backgroundMusic}
                 loop={true}
                 preload="auto"
-                autoPlay={true}
+                autoPlay={false}
             ></audio>
         </>
     );
