@@ -89,40 +89,20 @@ export default function PlayArea({
 
     // Display a Victory or Game Over message depending on the user's score.
     let popUpMessage;
-    if (currentScore === null) {
+    const gameIsLost = currentScore === null;
+    const gameIsWon = currentScore === currentCharacters.length;
+    const gameEnded = gameIsLost || gameIsWon
+    if (gameEnded) {
+        let message;
+        if (gameIsWon) {
+            message = "Victory"
+        } else if (gameIsLost) {
+            message = "You Lost"
+        }
+
         popUpMessage = (
             <div className="pop-up-message">
-                <div className="message">Game Over</div>
-                <button
-                    className="restart"
-                    onClick={() => {
-                        // Play button sound fx if sfx are enabled
-                        if (areSfxEnabled) {
-                            buttonClickSfxRef.current.play();
-                        }
-                        requestNewCharacters();
-                    }}
-                >
-                    Restart
-                </button>
-                <button
-                    className="menu"
-                    onClick={() => {
-                        // Play button sound fx if sfx are enabled
-                        if (areSfxEnabled) {
-                            buttonClickSfxRef.current.play();
-                        }
-                        goBackToMenu();
-                    }}
-                >
-                    Back to Menu
-                </button>
-            </div>
-        );
-    } else if (currentScore === currentCharacters.length) {
-        popUpMessage = (
-            <div className="pop-up-message">
-                <div className="message">Victory</div>
+                <div className="message">{message}</div>
                 <button
                     className="restart"
                     onClick={() => {
