@@ -73,91 +73,79 @@ export default function App() {
             });
     }
 
+    const footer = (
+        <footer>
+            <BackgroundMusicButton
+                areSfxEnabled={areSfxEnabled}
+            ></BackgroundMusicButton>
+            <button
+                className="sf-music-switch"
+                onClick={() => {
+                    // Play button click sound if sfx are enabled
+                    if (areSfxEnabled) {
+                        buttonClickSfxRef.current.play();
+                    }
+                    toggleSfx();
+                }}
+            >
+                {areSfxEnabled ? 'Disable SFX' : 'Enable SFX'}
+            </button>
+            <Instruction areSfxEnabled={areSfxEnabled}></Instruction>
+        </footer>
+    );
+
+    let mainContent;
     if (characters) {
-        return (
-            <>
-                <HomeButton
-                    goToHome={() => setCharacters(null)}
-                    areSfxEnabled={areSfxEnabled}
-                ></HomeButton>
-                <PlayArea
-                    newCharacters={characters}
-                    requestNewCharacters={() =>
-                        getCharacters(characters.length)
-                    }
-                    goBackToMenu={() => setCharacters(null)}
-                    areSfxEnabled={areSfxEnabled}
-                ></PlayArea>
-                <BackgroundMusicButton
-                    areSfxEnabled={areSfxEnabled}
-                ></BackgroundMusicButton>
-                <button className="sf-music-switch" onClick={() => {
-                            // Play button click sound if sfx are enabled
-                            if (areSfxEnabled) {
-                                buttonClickSfxRef.current.play();
-                            }
-                            toggleSfx();
-                        }
-                    }
-                >
-                    {areSfxEnabled ? 'Disable SFX' : 'Enable SFX'}
-                </button>
-                <Instruction areSfxEnabled={areSfxEnabled}></Instruction>
-            </>
+        mainContent = (
+            <PlayArea
+                newCharacters={characters}
+                requestNewCharacters={() => getCharacters(characters.length)}
+                goBackToMenu={() => setCharacters(null)}
+                areSfxEnabled={areSfxEnabled}
+            ></PlayArea>
         );
     } else {
-        return (
-            <>
-                <HomeButton
-                    goToHome={() => setCharacters(null)}
-                    areSfxEnabled={areSfxEnabled}
-                ></HomeButton>
-                <div className="difficulty-selector">
-                    <button
-                        className="difficulty-button"
-                        onClick={handleDifficultyClick}
-                    >
-                        Meeseeks
-                    </button>
-                    <button
-                        className="difficulty-button"
-                        onClick={handleDifficultyClick}
-                    >
-                        Schiwfty
-                    </button>
-                    <button
-                        className="difficulty-button"
-                        onClick={handleDifficultyClick}
-                    >
-                        Gazorpazorp
-                    </button>
-                    <button
-                        className="difficulty-button"
-                        onClick={handleDifficultyClick}
-                    >
-                        Interdimensional
-                    </button>
-                    <button
-                        className="difficulty-button"
-                        onClick={handleDifficultyClick}
-                    >
-                        EvilMorty
-                    </button>
-                </div>
-                <BackgroundMusicButton areSfxEnabled={areSfxEnabled}></BackgroundMusicButton>
-                <button className="sf-music-switch" onClick={() => {
-                            // Play button click sound if sfx are enabled
-                            if (areSfxEnabled) {
-                                buttonClickSfxRef.current.play();
-                            }
-                            toggleSfx();
-                        }
-                    }
+        mainContent = (
+            <div className="difficulty-selector">
+                <button
+                    className="difficulty-button"
+                    onClick={handleDifficultyClick}
                 >
-                    {areSfxEnabled ? 'Disable SFX' : 'Enable SFX'}
+                    Meeseeks
                 </button>
-                <Instruction areSfxEnabled={areSfxEnabled}></Instruction>
-            </>
+                <button
+                    className="difficulty-button"
+                    onClick={handleDifficultyClick}
+                >
+                    Schiwfty
+                </button>
+                <button
+                    className="difficulty-button"
+                    onClick={handleDifficultyClick}
+                >
+                    Gazorpazorp
+                </button>
+                <button
+                    className="difficulty-button"
+                    onClick={handleDifficultyClick}
+                >
+                    Interdimensional
+                </button>
+                <button
+                    className="difficulty-button"
+                    onClick={handleDifficultyClick}
+                >
+                    EvilMorty
+                </button>
+            </div>
         );
     }
+
+    return (
+        <>
+            <HomeButton></HomeButton>
+            {mainContent}
+            {footer}
+        </>
+    );
 }
