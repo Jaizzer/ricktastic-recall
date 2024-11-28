@@ -3,6 +3,7 @@ import Scoreboard from './Scoreboard';
 import cardSlideSfx from './assets/card-slide.wav';
 import gameOverSfx from './assets/game-over.wav';
 import buttonClickSfx from './assets/button-click.wav';
+import victorySfx from './assets/victory.wav';
 
 export default function PlayArea({
     newCharacters,
@@ -69,6 +70,14 @@ export default function PlayArea({
             gameOverSfxRef.current.play();
         }
 
+        // Play victory sound if player won
+        if (
+            nextRenderCurrentScore === currentCharacters.length &&
+            areSfxEnabled
+        ) {
+            new Audio(victorySfx).play();
+        }
+
         // Update the currentCharacters state
         setCurrentCharacters([...shuffleArray(currentCharacters)]);
     }
@@ -91,13 +100,13 @@ export default function PlayArea({
     let popUpMessage;
     const gameIsLost = currentScore === null;
     const gameIsWon = currentScore === currentCharacters.length;
-    const gameEnded = gameIsLost || gameIsWon
+    const gameEnded = gameIsLost || gameIsWon;
     if (gameEnded) {
         let message;
         if (gameIsWon) {
-            message = "Victory"
+            message = 'Victory';
         } else if (gameIsLost) {
-            message = "You Lost"
+            message = 'You Lost';
         }
 
         popUpMessage = (
