@@ -61,7 +61,7 @@ export default function PlayArea({
         }
 
         // Play game over sound if player clicked a card twice
-        if (highScore !== 0 && getCurrentScore(currentCharacters) === null) {
+        if (getCurrentScore(currentCharacters) === null) {
             gameOverSfxRef.current.play();
         }
 
@@ -85,7 +85,7 @@ export default function PlayArea({
 
     // Display a Victory or Game Over message depending on the user's score.
     let popUpMessage;
-    if (highScore !== 0 && currentScore === null) {
+    if (currentScore === null) {
         popUpMessage = (
             <div className="pop-up-message">
                 <div className="message">Game Over</div>
