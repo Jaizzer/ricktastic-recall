@@ -91,7 +91,15 @@ export default function App() {
                 <BackgroundMusicButton
                     areSfxEnabled={areSfxEnabled}
                 ></BackgroundMusicButton>
-                <button className="sf-music-switch" onClick={toggleSfx}>
+                <button className="sf-music-switch" onClick={() => {
+                            // Play button click sound if sfx are enabled
+                            if (areSfxEnabled) {
+                                buttonClickSfxRef.current.play();
+                            }
+                            toggleSfx();
+                        }
+                    }
+                >
                     {areSfxEnabled ? 'Disable SFX' : 'Enable SFX'}
                 </button>
                 <Instruction areSfxEnabled={areSfxEnabled}></Instruction>
@@ -137,7 +145,15 @@ export default function App() {
                     </button>
                 </div>
                 <BackgroundMusicButton areSfxEnabled={areSfxEnabled}></BackgroundMusicButton>
-                <button className="sf-music-switch" onClick={toggleSfx}>
+                <button className="sf-music-switch" onClick={() => {
+                            // Play button click sound if sfx are enabled
+                            if (areSfxEnabled) {
+                                buttonClickSfxRef.current.play();
+                            }
+                            toggleSfx();
+                        }
+                    }
+                >
                     {areSfxEnabled ? 'Disable SFX' : 'Enable SFX'}
                 </button>
                 <Instruction areSfxEnabled={areSfxEnabled}></Instruction>
