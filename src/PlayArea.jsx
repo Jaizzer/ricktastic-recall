@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import Scoreboard from './Scoreboard';
 import cardSlideSfx from './assets/card-slide.wav';
 import gameOverSfx from './assets/game-over.wav';
+import buttonClickSfx from './assets/button-click.wav';
 
 export default function PlayArea({
     newCharacters,
@@ -21,6 +22,9 @@ export default function PlayArea({
 
     // Save reference to the game over sfx to prevent multiple instantiation on re-renders
     const gameOverSfxRef = useRef(new Audio(gameOverSfx));
+
+    // Save reference to the click button sfx to prevent multiple instantiation on re-renders
+    const buttonClickSfxRef = useRef(new Audio(buttonClickSfx));
 
     // Play card slide audio if SFX are enabled
     if (areSfxEnabled) {
@@ -89,10 +93,28 @@ export default function PlayArea({
         popUpMessage = (
             <div className="pop-up-message">
                 <div className="message">Game Over</div>
-                <button className="restart" onClick={requestNewCharacters}>
+                <button
+                    className="restart"
+                    onClick={() => {
+                        // Play button sound fx if sfx are enabled
+                        if (areSfxEnabled) {
+                            buttonClickSfxRef.current.play();
+                        }
+                        requestNewCharacters();
+                    }}
+                >
                     Restart
                 </button>
-                <button className="menu" onClick={goBackToMenu}>
+                <button
+                    className="menu"
+                    onClick={() => {
+                        // Play button sound fx if sfx are enabled
+                        if (areSfxEnabled) {
+                            buttonClickSfxRef.current.play();
+                        }
+                        goBackToMenu();
+                    }}
+                >
                     Back to Menu
                 </button>
             </div>
@@ -101,10 +123,28 @@ export default function PlayArea({
         popUpMessage = (
             <div className="pop-up-message">
                 <div className="message">Victory</div>
-                <button className="restart" onClick={requestNewCharacters}>
+                <button
+                    className="restart"
+                    onClick={() => {
+                        // Play button sound fx if sfx are enabled
+                        if (areSfxEnabled) {
+                            buttonClickSfxRef.current.play();
+                        }
+                        requestNewCharacters();
+                    }}
+                >
                     Restart
                 </button>
-                <button className="menu" onClick={goBackToMenu}>
+                <button
+                    className="menu"
+                    onClick={() => {
+                        // Play button sound fx if sfx are enabled
+                        if (areSfxEnabled) {
+                            buttonClickSfxRef.current.play();
+                        }
+                        goBackToMenu();
+                    }}
+                >
                     Back to Menu
                 </button>
             </div>
