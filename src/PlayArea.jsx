@@ -142,12 +142,17 @@ export default function PlayArea({
 
     return (
         <div className="play-area">
-            {popUpMessage}
-            <Scoreboard
-                currentScore={currentScore}
-                highScore={highScore}
-            ></Scoreboard>
-            <div className="deck">{cards}</div>
+            {gameEnded ? (
+                popUpMessage
+            ) : (
+                <>
+                    <Scoreboard
+                        currentScore={currentScore}
+                        highScore={highScore}
+                    ></Scoreboard>
+                    <div className="deck">{cards}</div>
+                </>
+            )}
         </div>
     );
 }
