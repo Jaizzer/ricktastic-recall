@@ -6,6 +6,15 @@ import Instruction from './Instruction';
 
 export default function App() {
     const [characters, setCharacters] = useState(null);
+    const [areSfxEnabled, setAreSfxEnabled] = useState(false);
+
+    function toggleSfx() {
+        if (areSfxEnabled) {
+            setAreSfxEnabled(false);
+        } else {
+            setAreSfxEnabled(true);
+        }
+    }
 
     function handleDifficultyClick(event) {
         // Access the clicked difficulty button
@@ -51,7 +60,7 @@ export default function App() {
                 if (data.length === numberOfCardsToShow) {
                     setCharacters(data);
                 } else {
-                    getCharacters(numberOfCardsToShow)
+                    getCharacters(numberOfCardsToShow);
                 }
             });
     }
@@ -70,6 +79,9 @@ export default function App() {
                     goBackToMenu={() => setCharacters(null)}
                 ></PlayArea>
                 <BackgroundMusicButton></BackgroundMusicButton>
+                <button className="sf-music-switch" onClick={toggleSfx}>
+                    {areSfxEnabled ? 'Disable SFX' : 'Enable SFX'}
+                </button>
                 <Instruction></Instruction>
             </>
         );
@@ -112,6 +124,9 @@ export default function App() {
                     </button>
                 </div>
                 <BackgroundMusicButton></BackgroundMusicButton>
+                <button className="sf-music-switch" onClick={toggleSfx}>
+                    {areSfxEnabled ? 'Disable SFX' : 'Enable SFX'}
+                </button>
                 <Instruction></Instruction>
             </>
         );
