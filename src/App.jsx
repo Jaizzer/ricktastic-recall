@@ -77,6 +77,7 @@ export default function App() {
                         getCharacters(characters.length)
                     }
                     goBackToMenu={() => setCharacters(null)}
+                    areSfxEnabled={areSfxEnabled}
                 ></PlayArea>
                 <BackgroundMusicButton></BackgroundMusicButton>
                 <button className="sf-music-switch" onClick={toggleSfx}>

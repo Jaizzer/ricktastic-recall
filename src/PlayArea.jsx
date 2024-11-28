@@ -5,6 +5,7 @@ export default function PlayArea({
     newCharacters,
     requestNewCharacters,
     goBackToMenu,
+    areSfxEnabled,
 }) {
     const [currentCharacters, setCurrentCharacters] = useState(
         newCharacters.map((newCharacter) => {
