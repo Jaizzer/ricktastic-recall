@@ -1,9 +1,17 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import buttonClickSfx from './assets/button-click.wav';
 
-export default function Instruction() {
+export default function Instruction({ areSfxEnabled }) {
     const [isInstructionVisible, setIsInstructionVisible] = useState(false);
 
+    const buttonClickSfxRef = useRef(new Audio(buttonClickSfx));
+
     function handleClick() {
+        // Play button sound fx if sfx are enabled
+        if (areSfxEnabled) {
+            buttonClickSfxRef.current.play();
+        }
+
         if (isInstructionVisible) {
             setIsInstructionVisible(false);
         } else {
