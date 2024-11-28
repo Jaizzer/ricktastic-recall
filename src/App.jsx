@@ -70,6 +70,7 @@ export default function App() {
             <>
                 <HomeButton
                     handleClick={() => setCharacters(null)}
+                    areSfxEnabled={areSfxEnabled}
                 ></HomeButton>
                 <PlayArea
                     newCharacters={characters}
@@ -79,11 +80,11 @@ export default function App() {
                     goBackToMenu={() => setCharacters(null)}
                     areSfxEnabled={areSfxEnabled}
                 ></PlayArea>
-                <BackgroundMusicButton></BackgroundMusicButton>
+                <BackgroundMusicButton areSfxEnabled={areSfxEnabled}></BackgroundMusicButton>
                 <button className="sf-music-switch" onClick={toggleSfx}>
                     {areSfxEnabled ? 'Disable SFX' : 'Enable SFX'}
                 </button>
-                <Instruction></Instruction>
+                <Instruction areSfxEnabled={areSfxEnabled}></Instruction>
             </>
         );
     } else {
@@ -91,6 +92,7 @@ export default function App() {
             <>
                 <HomeButton
                     handleClick={() => setCharacters(null)}
+                    areSfxEnabled={areSfxEnabled}
                 ></HomeButton>
                 <div className="difficulty-selector">
                     <button
@@ -124,11 +126,11 @@ export default function App() {
                         EvilMorty
                     </button>
                 </div>
-                <BackgroundMusicButton></BackgroundMusicButton>
+                <BackgroundMusicButton areSfxEnabled={areSfxEnabled}></BackgroundMusicButton>
                 <button className="sf-music-switch" onClick={toggleSfx}>
                     {areSfxEnabled ? 'Disable SFX' : 'Enable SFX'}
                 </button>
-                <Instruction></Instruction>
+                <Instruction areSfxEnabled={areSfxEnabled}></Instruction>
             </>
         );
     }
