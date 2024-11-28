@@ -61,7 +61,7 @@ export default function PlayArea({
         }
 
         // Play game over sound if player clicked a card twice
-        if (getCurrentScore(currentCharacters) === null) {
+        if (getCurrentScore(currentCharacters) === null && areSfxEnabled) {
             gameOverSfxRef.current.play();
         }
 
