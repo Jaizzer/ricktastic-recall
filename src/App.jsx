@@ -1,12 +1,15 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import HomeButton from './HomeButton';
 import PlayArea from './PlayArea';
 import BackgroundMusicButton from './BackgroundMusicButton';
 import Instruction from './Instruction';
+import buttonClickSfx from './assets/button-click.wav';
 
 export default function App() {
     const [characters, setCharacters] = useState(null);
     const [areSfxEnabled, setAreSfxEnabled] = useState(false);
+
+    const buttonClickSfxRef = useRef(new Audio(buttonClickSfx));
 
     function toggleSfx() {
         if (areSfxEnabled) {
@@ -17,6 +20,11 @@ export default function App() {
     }
 
     function handleDifficultyClick(event) {
+        // Play button click sound if sfx are enabled
+        if (areSfxEnabled) {
+            buttonClickSfxRef.current.play();
+        }
+
         // Access the clicked difficulty button
         const clickedDifficultyButton = event.target;
 
@@ -80,7 +88,9 @@ export default function App() {
                     goBackToMenu={() => setCharacters(null)}
                     areSfxEnabled={areSfxEnabled}
                 ></PlayArea>
-                <BackgroundMusicButton areSfxEnabled={areSfxEnabled}></BackgroundMusicButton>
+                <BackgroundMusicButton
+                    areSfxEnabled={areSfxEnabled}
+                ></BackgroundMusicButton>
                 <button className="sf-music-switch" onClick={toggleSfx}>
                     {areSfxEnabled ? 'Disable SFX' : 'Enable SFX'}
                 </button>
