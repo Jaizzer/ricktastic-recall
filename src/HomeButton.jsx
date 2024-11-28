@@ -1,4 +1,4 @@
-export default function HomeButton({ handleClick }) {
+export default function HomeButton({ handleClick, areSfxEnabled }) {
     return (
         <div className="home-button" onClick={handleClick}>
             <img src="" alt="Home" className="home-button-icon"></img>
