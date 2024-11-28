@@ -27,14 +27,19 @@ export default function Instruction({ areSfxEnabled }) {
             {isInstructionVisible && (
                 <div className="instruction">
                     <div className="description">
-                        <p>Welcome to Rickstatic Recall</p>
                         <p>
-                            Flip one card at a time, and try not to click the
-                            same card twice.
+                            Wubba Lubba Dub-Dub! Welcome to Rickstatic Recall!
                         </p>
                         <p>
-                            Keep track of your score and challenge yourself to
-                            improve!
+                            Flip a card, one at a time. Don’t be a dummy and
+                            click the same card twice, okay?
+                        </p>
+                        <p>
+                            Keep track of your score, and if you’re not
+                            improving, well… maybe this game isn’t for you. Just
+                            kidding. Or am I? Now, go show me what that big ol’
+                            brain of yours can do. Good luck… you’re gonna need
+                            it!
                         </p>
                     </div>
                 </div>
