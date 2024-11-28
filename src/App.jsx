@@ -69,7 +69,7 @@ export default function App() {
         return (
             <>
                 <HomeButton
-                    handleClick={() => setCharacters(null)}
+                    goToHome={() => setCharacters(null)}
                     areSfxEnabled={areSfxEnabled}
                 ></HomeButton>
                 <PlayArea
@@ -91,7 +91,7 @@ export default function App() {
         return (
             <>
                 <HomeButton
-                    handleClick={() => setCharacters(null)}
+                    goToHome={() => setCharacters(null)}
                     areSfxEnabled={areSfxEnabled}
                 ></HomeButton>
                 <div className="difficulty-selector">
