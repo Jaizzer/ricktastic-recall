@@ -43,11 +43,6 @@ export default function PlayArea({
     // Get current score
     let currentScore = getCurrentScore(currentCharacters);
 
-    // Play game over sound if player clicked a card twice
-    if (highScore !== 0 && currentScore === null) {
-        gameOverSfxRef.current.play();
-    }
-
     function updatePlayArea(cardId) {
         // Find the object corresponding to the clicked card
         const correspondingObjectOfTheClickedCard = currentCharacters.find(
@@ -63,6 +58,11 @@ export default function PlayArea({
         // Update if the high score is beaten by the next render current score
         if (highScore < nextRenderCurrentScore) {
             setHighScore(nextRenderCurrentScore);
+        }
+
+        // Play game over sound if player clicked a card twice
+        if (highScore !== 0 && getCurrentScore(currentCharacters) === null) {
+            gameOverSfxRef.current.play();
         }
 
         // Update the currentCharacters state
