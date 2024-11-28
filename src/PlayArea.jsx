@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import Scoreboard from './Scoreboard';
 import cardSlideSfx from './assets/card-slide.wav';
+import gameOverSfx from './assets/game-over.wav';
 
 export default function PlayArea({
     newCharacters,
@@ -17,6 +18,9 @@ export default function PlayArea({
 
     // Save reference to the card slide sfx to prevent multiple instantiation on re-renders
     const cardSlideSfxRef = useRef(new Audio(cardSlideSfx));
+
+    // Save reference to the game over sfx to prevent multiple instantiation on re-renders
+    const gameOverSfxRef = useRef(new Audio(gameOverSfx));
 
     // Play card slide audio if SFX are enabled
     if (areSfxEnabled) {
@@ -38,6 +42,11 @@ export default function PlayArea({
 
     // Get current score
     let currentScore = getCurrentScore(currentCharacters);
+
+    // Play game over sound if player clicked a card twice
+    if (highScore !== 0 && currentScore === null) {
+        gameOverSfxRef.current.play();
+    }
 
     function updatePlayArea(cardId) {
         // Find the object corresponding to the clicked card
