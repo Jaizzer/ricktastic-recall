@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Scoreboard from './Scoreboard';
+import cardSlideSfx from './assets/card-slide.wav';
 
 export default function PlayArea({
     newCharacters,
@@ -13,6 +14,14 @@ export default function PlayArea({
             return { ...newCharacter, clickCount: 0 };
         })
     );
+
+    // Save reference to the card slide sfx to prevent multiple instantiation on re-renders
+    const cardSlideSfxRef = useRef(new Audio(cardSlideSfx));
+
+    // Play card slide audio if SFX are enabled
+    if (areSfxEnabled) {
+        cardSlideSfxRef.current.play();
+    }
 
     // Use the newly sent newCharacters prop as the currentCharacters
     useEffect(() => {
