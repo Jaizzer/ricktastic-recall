@@ -4,6 +4,7 @@ import cardSlideSfx from './assets/card-slide.wav';
 import gameOverSfx from './assets/game-over.wav';
 import buttonClickSfx from './assets/button-click.wav';
 import victorySfx from './assets/victory.wav';
+import portalImageUrl from './assets/portal.jpg';
 
 export default function PlayArea({
     newCharacters,
@@ -159,8 +160,11 @@ export default function PlayArea({
 
 function Card({ imageUrl, onClick }) {
     return (
-        <div className="card" onClick={onClick}>
-            <img src={imageUrl} />
+        <div className="container">
+            <div className="card" onClick={onClick}>
+                <img className="front" src={imageUrl} />
+                <img className="back" src={portalImageUrl} />
+            </div>
         </div>
     );
 }

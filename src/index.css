@@ -10,8 +10,32 @@
 
 .card {
     width: 150px;
+    height: 340px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCard 0.7s 2 alternate;
 }
 
-.card img {
+.front,
+.back {
     width: 100%;
+    position: absolute;
+}
+
+.front {
+    z-index: 2;
+    backface-visibility: hidden;
+}
+
+.back {
+    z-index: 1;
+}
+
+@keyframes rotateCard {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
 }
