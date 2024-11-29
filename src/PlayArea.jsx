@@ -89,7 +89,7 @@ export default function PlayArea({
         return (
             <Card
                 imageUrl={imageUrl}
-                key={currentCharacter.id}
+                key={Math.floor(Math.random() * 1000)}
                 onClick={() => {
                     updatePlayArea(currentCharacter.id);
                 }}
