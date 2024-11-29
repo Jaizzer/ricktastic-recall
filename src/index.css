@@ -13,7 +13,7 @@
     height: 340px;
     position: relative;
     transform-style: preserve-3d;
-    animation: rotateCard 0.7s 2 alternate;
+    animation: rotateCard 0.7s 1 alternate;
 }
 
 .front,
