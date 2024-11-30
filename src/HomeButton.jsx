@@ -7,15 +7,13 @@ export default function HomeButton({ goToHome, areSfxEnabled }) {
         <div
             className="home-button"
             onClick={() => {
-                
                 if (areSfxEnabled) {
                     buttonClickSfxRef.current.play();
                 }
                 goToHome();
             }}
         >
-            <img src="" alt="Home" className="home-button-icon"></img>
-            <div className="home-button-text">Memory Quest</div>
+            <div className="home-button-text">Rickstatic Recall</div>
         </div>
     );
 }
