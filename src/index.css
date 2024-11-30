@@ -1,9 +1,10 @@
 .deck {
     width: 80%;
 
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    gap: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 
     justify-content: center;
 }
