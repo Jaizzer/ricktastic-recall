@@ -9,8 +9,8 @@
 }
 
 .card {
-    width: 150px;
-    height: 340px;
+    width: 200px;
+    height: 200px;s
     position: relative;
     transform-style: preserve-3d;
     animation: rotateCard 0.7s 1 alternate;
@@ -23,12 +23,14 @@
 }
 
 .front {
+    height: 100%;
     z-index: 2;
     backface-visibility: hidden;
 }
 
 .back {
     z-index: 1;
+    height: 100%;
 }
 
 @keyframes rotateCard {
