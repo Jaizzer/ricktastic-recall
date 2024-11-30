@@ -7,7 +7,7 @@ import buttonClickSfx from './assets/button-click.wav';
 
 export default function App() {
     const [characters, setCharacters] = useState(null);
-    const [areSfxEnabled, setAreSfxEnabled] = useState(false);
+    const [areSfxEnabled, setAreSfxEnabled] = useState(true);
 
     const buttonClickSfxRef = useRef(new Audio(buttonClickSfx));
 
