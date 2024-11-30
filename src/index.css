@@ -12,6 +12,7 @@
 
 .play-area {
     display: grid;
+    gap: 20px;
 }
 
 .scoreboard {
