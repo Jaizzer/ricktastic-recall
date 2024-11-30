@@ -10,7 +10,7 @@
 
 .card {
     width: 200px;
-    height: 200px;s
+    height: 200px;
     position: relative;
     transform-style: preserve-3d;
     animation: rotateCard 0.7s 1 alternate;
