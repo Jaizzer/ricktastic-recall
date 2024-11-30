@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Rick and Morty';
+    src: url('./assets/rick-and-morty-font/WubbaLubbaDubDub.otf')
+        format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .play-area {
     display: grid;
 }
