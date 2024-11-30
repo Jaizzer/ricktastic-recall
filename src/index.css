@@ -6,8 +6,30 @@
     font-style: normal;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .play-area {
     display: grid;
+}
+
+.scoreboard {
+    justify-self: center;
+    
+    padding: 10px;
+    border-radius: 10px;
+    width: 200px;
+
+    border: 1px solid green;
+
+    font-size: 21px;
+}
+
+.score-slot {
+    display: grid;
+    grid-template-columns: 150px 50px;
+    gap: 10px;
 }
 
 .deck {
