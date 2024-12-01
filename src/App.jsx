@@ -104,6 +104,18 @@ export default function App() {
                 areSfxEnabled={areSfxEnabled}
             ></PlayArea>
         );
+
+        return (
+            <>
+                <HomeButton
+                    goToHome={() => {
+                        setCharacters(null);
+                    }}
+                ></HomeButton>
+                <div className="main-content">{mainContent}</div>
+                {footer}
+            </>
+        );
     } else {
         mainContent = (
             <div className="difficulty-selector">
@@ -139,13 +151,18 @@ export default function App() {
                 </button>
             </div>
         );
+        return (
+            <>
+                <div className="main-content">
+                    <HomeButton
+                        goToHome={() => {
+                            setCharacters(null);
+                        }}
+                    ></HomeButton>
+                    {mainContent}
+                </div>
+                {footer}
+            </>
+        );
     }
-
-    return (
-        <>
-            <HomeButton goToHome={() => {setCharacters(null)}}></HomeButton>
-            <div className="main-content">{mainContent}</div>
-            {footer}
-        </>
-    );
 }

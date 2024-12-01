@@ -67,9 +67,11 @@ body {
     padding: 10px;
     border-radius: 10px;
 
-    border: 1px solid green;
+    background-color: rgb(18, 30, 62);
 
-    font-size: 21px;
+    font-family: "Rick and Morty";
+    font-size: 25px;
+    color: white;
 }
 
 .score-slot {
