@@ -118,3 +118,13 @@ body {
         transform: rotateY(0deg);
     }
 }
+
+
+footer {
+    display: flex;
+}
+
+.instruction-button {
+    margin-left: auto;
+}
+
