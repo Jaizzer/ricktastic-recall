@@ -11,6 +11,11 @@
     border: 1px solid grey;
 }
 
+
+body {
+    background-image: url(./assets/background.jpg);
+}
+
 .home-button {
     font-family: 'Rick and Morty';
     font-size: 60px;
