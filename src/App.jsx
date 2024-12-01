@@ -144,7 +144,7 @@ export default function App() {
     return (
         <>
             <HomeButton goToHome={() => {setCharacters(null)}}></HomeButton>
-            {mainContent}
+            <div className="main-content">{mainContent}</div>
             {footer}
         </>
     );
