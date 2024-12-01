@@ -17,6 +17,13 @@ body {
     height: 100vh;
 }
 
+#root {
+    height: 100%;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
 .home-button {
     font-family: 'Rick and Morty';
     font-size: 60px;
