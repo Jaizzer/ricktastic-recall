@@ -84,18 +84,20 @@ export default function PlayArea({
     }
 
     // Create cards
-    const cards = currentCharacters.map((currentCharacter) => {
-        const imageUrl = currentCharacter.image;
-        return (
+    let numberOfCardsToShow = 5;
+    let cards = [];
+    for (let i = 0; i < numberOfCardsToShow; i++) {
+        let currentCharacter = currentCharacters[i];
+        cards.push(
             <Card
-                imageUrl={imageUrl}
+                imageUrl={currentCharacter.image}
                 key={Math.floor(Math.random() * 1000)}
                 onClick={() => {
                     updatePlayArea(currentCharacter.id);
                 }}
             ></Card>
         );
-    });
+    }
 
     // Display a Victory or Game Over message depending on the user's score.
     let popUpMessage;
