@@ -19,32 +19,11 @@ export default function App() {
         }
     }
 
-    function handleDifficultyClick(event) {
+    function handleDifficultyClick(numberOfCardsToShow) {
         // Play button click sound if sfx are enabled
         if (areSfxEnabled) {
             buttonClickSfxRef.current.play();
         }
-
-        // Access the clicked difficulty button
-        const clickedDifficultyButton = event.target;
-
-        // Access the parent of clicked difficulty button
-        const parentOfClickedDifficultyButton =
-            clickedDifficultyButton.parentElement;
-
-        // Access all the children of the parent of clicked difficulty button
-        const childrenOfParentOfClickedDifficultyButton = Array.from(
-            parentOfClickedDifficultyButton.children
-        );
-
-        // Determine the index of the clicked difficulty button
-        const indexOfClickedDifficultyButton =
-            childrenOfParentOfClickedDifficultyButton.indexOf(
-                clickedDifficultyButton
-            );
-
-        // Determine the number of cards to show base on the index of the clicked diffulty button
-        const numberOfCardsToShow = (indexOfClickedDifficultyButton + 1) * 5;
 
         // Get the chracters
         getCharacters(numberOfCardsToShow);
@@ -98,38 +77,47 @@ export default function App() {
         <div className="difficulty-selector">
             <button
                 className="difficulty-button"
-                onClick={handleDifficultyClick}
+                onClick={() => {
+                    handleDifficultyClick(10);
+                }}
             >
                 Meeseeks
             </button>
             <button
                 className="difficulty-button"
-                onClick={handleDifficultyClick}
+                onClick={() => {
+                    handleDifficultyClick(15);
+                }}
             >
                 Schiwfty
             </button>
             <button
                 className="difficulty-button"
-                onClick={handleDifficultyClick}
+                onClick={() => {
+                    handleDifficultyClick(20);
+                }}
             >
                 Gazorpazorp
             </button>
             <button
                 className="difficulty-button"
-                onClick={handleDifficultyClick}
+                onClick={() => {
+                    handleDifficultyClick(25);
+                }}
             >
                 Interdimensional
             </button>
             <button
                 className="difficulty-button"
-                onClick={handleDifficultyClick}
+                onClick={() => {
+                    handleDifficultyClick(30);
+                }}
             >
                 EvilMorty
             </button>
         </div>
     );
 
-   
     if (characters) {
         return (
             <>
