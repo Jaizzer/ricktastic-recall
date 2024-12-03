@@ -11,7 +11,6 @@
     border: 1px solid grey;
 }
 
-
 body {
     background-image: url(./assets/background.jpg);
     height: 100vh;
@@ -69,7 +68,7 @@ body {
 
     background-color: rgb(18, 30, 62);
 
-    font-family: "Rick and Morty";
+    font-family: 'Rick and Morty';
     font-size: 25px;
     color: white;
 }
@@ -128,7 +127,6 @@ body {
     }
 }
 
-
 footer {
     display: flex;
 }
@@ -137,11 +135,9 @@ footer {
     margin-left: auto;
 }
 
-
-
 .welcome {
     display: grid;
-    
+
     justify-content: center;
     align-items: center;
     justify-items: center;
