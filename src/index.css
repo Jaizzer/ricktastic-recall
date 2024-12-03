@@ -178,6 +178,7 @@ button {
     justify-self: center;
 
     width: 80%;
+    max-width: 700px;
     height: 300px;
 
     padding: 20px;
