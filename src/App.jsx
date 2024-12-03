@@ -4,6 +4,8 @@ import PlayArea from './PlayArea';
 import BackgroundMusicButton from './BackgroundMusicButton';
 import Instruction from './Instruction';
 import buttonClickSfx from './assets/button-click.wav';
+import soundOffIcon from './assets/sound-off.png';
+import soundOnIcon from './assets/sound-on.png';
 
 export default function App() {
     const [characters, setCharacters] = useState(null);
@@ -67,7 +69,7 @@ export default function App() {
                     toggleSfx();
                 }}
             >
-                {areSfxEnabled ? 'Disable SFX' : 'Enable SFX'}
+                <img src={areSfxEnabled ? soundOnIcon : soundOffIcon} className='sound-button-icon'/>
             </button>
             <Instruction areSfxEnabled={areSfxEnabled}></Instruction>
         </div>

@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react';
 import buttonClickSfx from './assets/button-click.wav';
 import rickAndMorty from './assets/rick-and-morty.png';
+import instructionIcon from './assets/show-instruction.png'
+import closeIcon from './assets/close.png'
 
 export default function Instruction({ areSfxEnabled }) {
     const [isInstructionVisible, setIsInstructionVisible] = useState(false);
@@ -23,7 +25,8 @@ export default function Instruction({ areSfxEnabled }) {
     return (
         <>
             <button className="instruction-button" onClick={handleClick}>
-                {isInstructionVisible ? 'Hide Instruction' : 'Show Instruction'}
+                <img src={isInstructionVisible ? closeIcon : instructionIcon} className='instruction-button-icon'/>
+                
             </button>
             {isInstructionVisible && (
                 <div className="instruction-container">

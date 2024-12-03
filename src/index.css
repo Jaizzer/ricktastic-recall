@@ -139,7 +139,7 @@ body {
 }
 
 .tracker {
-    font-family: "Rick and Morty";
+    font-family: 'Rick and Morty';
     font-size: 40px;
     justify-self: center;
 }
@@ -177,6 +177,20 @@ button {
 .utility-buttons-container {
     display: flex;
     gap: 10px;
+}
+
+.utility-buttons-container button {
+    border-radius: 100px;
+}
+
+.sound-button-icon,
+.music-button-icon,
+.instruction-button-icon {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    width: 20px;
+    height: 20px;
 }
 
 .instruction-button {
