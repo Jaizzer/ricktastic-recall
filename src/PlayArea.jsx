@@ -156,6 +156,16 @@ export default function PlayArea({
                         highScore={highScore}
                     ></Scoreboard>
                     <div className="deck">{cards}</div>
+                    <button
+                        className="shuffler"
+                        onClick={() => {
+                            setCurrentCharacters([
+                                ...shuffleArray(currentCharacters),
+                            ]);
+                        }}
+                    >
+                        Shuffle Cards
+                    </button>
                     <div className="tracker">
                         {currentScore} / {currentCharacters.length}
                     </div>
