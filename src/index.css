@@ -135,6 +135,9 @@ body {
 }
 
 .welcome {
+    justify-self: center;
+    align-self: center;
+    
     display: grid;
 
     justify-content: center;
