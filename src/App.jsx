@@ -74,7 +74,7 @@ export default function App() {
     }
 
     const utilityButtonsContainer = (
-        <div className='utility-buttons-container'>
+        <div className="utility-buttons-container">
             <BackgroundMusicButton
                 areSfxEnabled={areSfxEnabled}
             ></BackgroundMusicButton>
@@ -94,17 +94,43 @@ export default function App() {
         </div>
     );
 
-    let mainContent;
-    if (characters) {
-        mainContent = (
-            <PlayArea
-                newCharacters={characters}
-                requestNewCharacters={() => getCharacters(characters.length)}
-                goBackToMenu={() => setCharacters(null)}
-                areSfxEnabled={areSfxEnabled}
-            ></PlayArea>
-        );
+    const difficultySelector = (
+        <div className="difficulty-selector">
+            <button
+                className="difficulty-button"
+                onClick={handleDifficultyClick}
+            >
+                Meeseeks
+            </button>
+            <button
+                className="difficulty-button"
+                onClick={handleDifficultyClick}
+            >
+                Schiwfty
+            </button>
+            <button
+                className="difficulty-button"
+                onClick={handleDifficultyClick}
+            >
+                Gazorpazorp
+            </button>
+            <button
+                className="difficulty-button"
+                onClick={handleDifficultyClick}
+            >
+                Interdimensional
+            </button>
+            <button
+                className="difficulty-button"
+                onClick={handleDifficultyClick}
+            >
+                EvilMorty
+            </button>
+        </div>
+    );
 
+   
+    if (characters) {
         return (
             <>
                 <HomeButton
@@ -112,56 +138,30 @@ export default function App() {
                         setCharacters(null);
                     }}
                 ></HomeButton>
-                <div className="main-content">{mainContent}</div>
+                <PlayArea
+                    newCharacters={characters}
+                    requestNewCharacters={() =>
+                        getCharacters(characters.length)
+                    }
+                    goBackToMenu={() => setCharacters(null)}
+                    areSfxEnabled={areSfxEnabled}
+                ></PlayArea>
                 {utilityButtonsContainer}
             </>
         );
     } else {
-        mainContent = (
-            <div className="difficulty-selector">
-                <button
-                    className="difficulty-button"
-                    onClick={handleDifficultyClick}
-                >
-                    Meeseeks
-                </button>
-                <button
-                    className="difficulty-button"
-                    onClick={handleDifficultyClick}
-                >
-                    Schiwfty
-                </button>
-                <button
-                    className="difficulty-button"
-                    onClick={handleDifficultyClick}
-                >
-                    Gazorpazorp
-                </button>
-                <button
-                    className="difficulty-button"
-                    onClick={handleDifficultyClick}
-                >
-                    Interdimensional
-                </button>
-                <button
-                    className="difficulty-button"
-                    onClick={handleDifficultyClick}
-                >
-                    EvilMorty
-                </button>
-            </div>
-        );
+        // Render Homepage
         return (
             <>
-                <div className="main-content">
+                <div className="welcome">
                     <HomeButton
                         goToHome={() => {
                             setCharacters(null);
                         }}
                     ></HomeButton>
-                    {mainContent}
+                    {difficultySelector}
+                    {utilityButtonsContainer}
                 </div>
-                {utilityButtonsContainer}
             </>
         );
     }
