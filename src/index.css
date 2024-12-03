@@ -131,6 +131,10 @@ body {
     }
 }
 
+.tracker {
+    justify-self: center;
+}
+
 .instruction-button {
     margin-left: auto;
 }
