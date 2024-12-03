@@ -141,13 +141,15 @@ export default function App() {
         // Render Homepage
         return (
             <>
-                <div className="welcome">
-                    <HomeButton
-                        goToHome={() => {
-                            setCharacters(null);
-                        }}
-                    ></HomeButton>
-                    {difficultySelector}
+                <div className="home">
+                    <div className="welcome">
+                        <HomeButton
+                            goToHome={() => {
+                                setCharacters(null);
+                            }}
+                        ></HomeButton>
+                        {difficultySelector}
+                    </div>
                     {utilityButtonsContainer}
                 </div>
             </>
