@@ -124,10 +124,6 @@ body {
     }
 }
 
-footer {
-    display: flex;
-}
-
 .instruction-button {
     margin-left: auto;
 }
