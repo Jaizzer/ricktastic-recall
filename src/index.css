@@ -135,3 +135,9 @@ body {
     align-items: center;
     justify-items: center;
 }
+
+button {
+    padding: 10px;
+    border-radius: 6px;
+    border: 0px;
+}
