@@ -115,30 +115,32 @@ export default function PlayArea({
         popUpMessage = (
             <div className="pop-up-message">
                 <div className="message">{message}</div>
-                <button
-                    className="restart"
-                    onClick={() => {
-                        // Play button sound fx if sfx are enabled
-                        if (areSfxEnabled) {
-                            buttonClickSfxRef.current.play();
-                        }
-                        requestNewCharacters();
-                    }}
-                >
-                    Restart
-                </button>
-                <button
-                    className="menu"
-                    onClick={() => {
-                        // Play button sound fx if sfx are enabled
-                        if (areSfxEnabled) {
-                            buttonClickSfxRef.current.play();
-                        }
-                        goBackToMenu();
-                    }}
-                >
-                    Back to Menu
-                </button>
+                <div className="actions">
+                    <button
+                        className="restart"
+                        onClick={() => {
+                            // Play button sound fx if sfx are enabled
+                            if (areSfxEnabled) {
+                                buttonClickSfxRef.current.play();
+                            }
+                            requestNewCharacters();
+                        }}
+                    >
+                        Restart
+                    </button>
+                    <button
+                        className="menu"
+                        onClick={() => {
+                            // Play button sound fx if sfx are enabled
+                            if (areSfxEnabled) {
+                                buttonClickSfxRef.current.play();
+                            }
+                            goBackToMenu();
+                        }}
+                    >
+                        Back to Menu
+                    </button>
+                </div>
             </div>
         );
     }
