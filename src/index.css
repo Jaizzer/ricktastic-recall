@@ -21,6 +21,8 @@ body {
 }
 
 .home-button {
+    text-align: center;
+
     font-family: 'Rick and Morty';
     font-size: 60px;
     color: #00b5cc;
