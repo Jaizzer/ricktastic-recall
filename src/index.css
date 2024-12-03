@@ -152,6 +152,13 @@ body {
     justify-items: center;
 }
 
+.difficulty-selector {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
 button {
     padding: 10px;
     border-radius: 6px;
