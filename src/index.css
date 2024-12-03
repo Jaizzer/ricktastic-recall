@@ -187,6 +187,10 @@ button {
     align-content: space-between;
 }
 
+.playing-page .home-button {
+    justify-self: start;
+}
+
 .pop-up-message {
     justify-self: center;
 
