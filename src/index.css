@@ -137,7 +137,7 @@ body {
 .welcome {
     justify-self: center;
     align-self: center;
-    
+
     display: grid;
 
     justify-content: center;
@@ -153,4 +153,11 @@ button {
 
 .utility-buttons-container {
     display: flex;
+}
+
+.playing-page {
+    height: 100%;
+    
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
