@@ -219,3 +219,26 @@ button {
     justify-content: center;
     gap: 50px;
 }
+
+.instruction {
+    position: fixed;
+    bottom: 10%;
+    right: 12.5%;
+
+    font-family: 'Rick and Morty';
+
+    padding: 25px;
+    background-color: #00353e;
+    border-radius: 20px;
+
+    display: grid;
+}
+
+.close-instruction-button {
+    height: 30px;
+    width: 30px;
+
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
