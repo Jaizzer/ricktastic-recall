@@ -69,7 +69,10 @@ export default function App() {
                     toggleSfx();
                 }}
             >
-                <img src={areSfxEnabled ? soundOnIcon : soundOffIcon} className='sound-button-icon'/>
+                <img
+                    src={areSfxEnabled ? soundOnIcon : soundOffIcon}
+                    className="sound-button-icon"
+                />
             </button>
             <Instruction areSfxEnabled={areSfxEnabled}></Instruction>
         </div>

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import backgroundMusic from './assets/background-music.mp3';
 import buttonClickSfx from './assets/button-click.wav';
-import musicOnIcon from './assets/music-on.png'
-import musicOffIcon from './assets/music-off.png'
+import musicOnIcon from './assets/music-on.png';
+import musicOffIcon from './assets/music-off.png';
 
 export default function BackgroundMusicButton({ areSfxEnabled }) {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -28,7 +28,10 @@ export default function BackgroundMusicButton({ areSfxEnabled }) {
     return (
         <>
             <button className="bg-music-switch" onClick={handleClick}>
-                <img src={isPlaying ? musicOnIcon : musicOffIcon} className='music-button-icon'/>
+                <img
+                    src={isPlaying ? musicOnIcon : musicOffIcon}
+                    className="music-button-icon"
+                />
             </button>
         </>
     );
