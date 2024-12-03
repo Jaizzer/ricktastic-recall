@@ -73,8 +73,8 @@ export default function App() {
             });
     }
 
-    const footer = (
-        <footer>
+    const utilityButtonsContainer = (
+        <div className='utility-buttons-container'>
             <BackgroundMusicButton
                 areSfxEnabled={areSfxEnabled}
             ></BackgroundMusicButton>
@@ -91,7 +91,7 @@ export default function App() {
                 {areSfxEnabled ? 'Disable SFX' : 'Enable SFX'}
             </button>
             <Instruction areSfxEnabled={areSfxEnabled}></Instruction>
-        </footer>
+        </div>
     );
 
     let mainContent;
@@ -113,7 +113,7 @@ export default function App() {
                     }}
                 ></HomeButton>
                 <div className="main-content">{mainContent}</div>
-                {footer}
+                {utilityButtonsContainer}
             </>
         );
     } else {
@@ -161,7 +161,7 @@ export default function App() {
                     ></HomeButton>
                     {mainContent}
                 </div>
-                {footer}
+                {utilityButtonsContainer}
             </>
         );
     }
