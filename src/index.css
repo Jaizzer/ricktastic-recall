@@ -139,6 +139,8 @@ body {
 }
 
 .tracker {
+    font-family: "Rick and Morty";
+    font-size: 40px;
     justify-self: center;
 }
 
