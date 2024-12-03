@@ -28,18 +28,12 @@ export default function Instruction({ areSfxEnabled }) {
                 <div className="instruction">
                     <div className="description">
                         <p>
-                            Wubba Lubba Dub-Dub! Welcome to Rickstatic Recall!
+                            Wubba Lubba Dub-Dub! Flip cards, but don’t click the
+                            same one twice!
                         </p>
                         <p>
-                            Flip a card, one at a time. Don’t be a dummy and
-                            click the same card twice, okay?
-                        </p>
-                        <p>
-                            Keep track of your score, and if you’re not
-                            improving, well… maybe this game isn’t for you. Just
-                            kidding. Or am I? Now, go show me what that big ol’
-                            brain of yours can do. Good luck… you’re gonna need
-                            it!
+                            Improve your score or quit—just kidding! Or am I?
+                            Good luck!
                         </p>
                     </div>
                 </div>
