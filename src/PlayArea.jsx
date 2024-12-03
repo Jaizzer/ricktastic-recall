@@ -5,6 +5,7 @@ import gameOverSfx from './assets/game-over.wav';
 import buttonClickSfx from './assets/button-click.wav';
 import victorySfx from './assets/victory.wav';
 import portalImageUrl from './assets/portal.jpg';
+import shuffleIcon from './assets/shuffle.png'
 
 export default function PlayArea({
     newCharacters,
@@ -163,6 +164,7 @@ export default function PlayArea({
                             ]);
                         }}
                     >
+                        <img src={shuffleIcon} className='shuffle-button-icon' />
                         Shuffle Cards
                     </button>
                     <div className="deck">{cards}</div>

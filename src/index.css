@@ -136,6 +136,14 @@ body {
 
 .shuffler {
     justify-self: center;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    gap: 10px;
 }
 
 .tracker {
@@ -185,7 +193,8 @@ button {
 
 .sound-button-icon,
 .music-button-icon,
-.instruction-button-icon {
+.instruction-button-icon,
+.shuffle-button-icon {
     display: grid;
     justify-content: center;
     align-content: center;
