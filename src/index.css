@@ -173,3 +173,22 @@ button {
     grid-template-rows: auto auto auto;
     align-content: space-between;
 }
+
+.pop-up-message {
+    justify-self: center;
+
+    width: 80%;
+    height: 300px;
+
+    padding: 20px;
+    border-radius: 20px;
+
+    text-align: center;
+
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+
+    background-color: rgb(18, 30, 62);
+}
