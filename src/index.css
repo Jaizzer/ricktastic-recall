@@ -13,7 +13,10 @@
 
 body {
     background-image: url(./assets/background.jpg);
-    height: 100vh;
+    max-height: max-content;
+    min-height: 100vh;
+
+    display: grid;
 }
 
 button {
