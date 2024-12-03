@@ -137,3 +137,12 @@ footer {
     margin-left: auto;
 }
 
+
+
+.welcome {
+    display: grid;
+    
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
