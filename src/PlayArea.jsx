@@ -155,7 +155,6 @@ export default function PlayArea({
                         currentScore={currentScore}
                         highScore={highScore}
                     ></Scoreboard>
-                    <div className="deck">{cards}</div>
                     <button
                         className="shuffler"
                         onClick={() => {
@@ -166,6 +165,7 @@ export default function PlayArea({
                     >
                         Shuffle Cards
                     </button>
+                    <div className="deck">{cards}</div>
                     <div className="tracker">
                         {currentScore} / {currentCharacters.length}
                     </div>
