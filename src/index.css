@@ -58,6 +58,9 @@ body {
 }
 
 .scoreboard {
+    display: grid;
+    height: 70px;
+
     justify-self: center;
 
     padding: 10px;
@@ -157,7 +160,7 @@ button {
 
 .playing-page {
     height: 100%;
-    
+
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
