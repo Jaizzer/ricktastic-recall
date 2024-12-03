@@ -141,3 +141,7 @@ button {
     border-radius: 6px;
     border: 0px;
 }
+
+.utility-buttons-container {
+    display: flex;
+}
