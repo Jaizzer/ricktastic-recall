@@ -135,10 +135,6 @@ body {
     justify-self: center;
 }
 
-.instruction-button {
-    margin-left: auto;
-}
-
 .home {
     height: 100%;
     display: grid;
@@ -164,6 +160,10 @@ button {
 
 .utility-buttons-container {
     display: flex;
+}
+
+.instruction-button {
+    margin-left: auto;
 }
 
 .playing-page {
