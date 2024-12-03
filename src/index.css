@@ -194,3 +194,9 @@ button {
 
     background-color: rgb(18, 30, 62);
 }
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
