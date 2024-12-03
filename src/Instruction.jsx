@@ -26,6 +26,10 @@ export default function Instruction({ areSfxEnabled }) {
             </button>
             {isInstructionVisible && (
                 <div className="instruction">
+                    <button
+                        className="close-instruction-button"
+                        onClick={handleClick}
+                    >x</button>
                     <div className="description">
                         <p>
                             Wubba Lubba Dub-Dub! Flip cards, but don’t click the
