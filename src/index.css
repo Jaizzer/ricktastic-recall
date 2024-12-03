@@ -16,6 +16,11 @@ body {
     height: 100vh;
 }
 
+button {
+    font-size: 22px;
+    font-family: 'Rick and Morty';
+}
+
 #root {
     height: 100%;
     padding: 20px;
