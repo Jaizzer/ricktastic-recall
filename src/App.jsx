@@ -121,20 +121,22 @@ export default function App() {
     if (characters) {
         return (
             <>
-                <HomeButton
-                    goToHome={() => {
-                        setCharacters(null);
-                    }}
-                ></HomeButton>
-                <PlayArea
-                    newCharacters={characters}
-                    requestNewCharacters={() =>
-                        getCharacters(characters.length)
-                    }
-                    goBackToMenu={() => setCharacters(null)}
-                    areSfxEnabled={areSfxEnabled}
-                ></PlayArea>
-                {utilityButtonsContainer}
+                <div className="playing-page">
+                    <HomeButton
+                        goToHome={() => {
+                            setCharacters(null);
+                        }}
+                    ></HomeButton>
+                    <PlayArea
+                        newCharacters={characters}
+                        requestNewCharacters={() =>
+                            getCharacters(characters.length)
+                        }
+                        goBackToMenu={() => setCharacters(null)}
+                        areSfxEnabled={areSfxEnabled}
+                    ></PlayArea>
+                    {utilityButtonsContainer}
+                </div>
             </>
         );
     } else {
