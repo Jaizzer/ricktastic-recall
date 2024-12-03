@@ -154,6 +154,9 @@ export default function PlayArea({
                         highScore={highScore}
                     ></Scoreboard>
                     <div className="deck">{cards}</div>
+                    <div className="tracker">
+                        {currentScore} / {currentCharacters.length}
+                    </div>
                 </>
             )}
         </div>
