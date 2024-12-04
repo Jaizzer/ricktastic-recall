@@ -265,7 +265,7 @@ button {
     font-family: "Rick and Morty";
     font-size: 50px;
     color: white;
-    
+
     justify-self: center;
 
     width: 80%;
@@ -288,8 +288,13 @@ button {
 
 .actions {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 50px;
+    gap: 20px;
+}
+
+.actions button {
+    width: 160px;
 }
 
 .instruction-container {
