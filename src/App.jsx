@@ -111,34 +111,38 @@ export default function App() {
     // If characters are loaded, render the game play area
     if (characters) {
         return (
-            <div className="playing-page">
-                <HomeButton goToHome={() => setCharacters(null)} />
-                <PlayArea
-                    newCharacters={characters}
-                    requestNewCharacters={() =>
-                        getCharacters(characters.length)
-                    }
-                    goBackToMenu={() => setCharacters(null)}
-                    areSfxEnabled={areSfxEnabled}
-                />
+            <>
+                <div className="playing-page">
+                    <HomeButton goToHome={() => setCharacters(null)} />
+                    <PlayArea
+                        newCharacters={characters}
+                        requestNewCharacters={() =>
+                            getCharacters(characters.length)
+                        }
+                        goBackToMenu={() => setCharacters(null)}
+                        areSfxEnabled={areSfxEnabled}
+                    />
+                </div>
                 {utilityButtonsContainer}
-            </div>
+            </>
         );
     } else {
         // Render the homepage with difficulty selection and utility buttons
         return (
-            <div className="home">
-                <div className="welcome">
-                    <HomeButton goToHome={() => setCharacters(null)} />
-                    {difficultySelector}
-                    {difficultyToDisplay && (
-                        <div className="difficulty-level">
-                            {difficultyToDisplay} cards
-                        </div>
-                    )}
+            <>
+                <div className="home">
+                    <div className="welcome">
+                        <HomeButton goToHome={() => setCharacters(null)} />
+                        {difficultySelector}
+                        {difficultyToDisplay && (
+                            <div className="difficulty-level">
+                                {difficultyToDisplay} cards
+                            </div>
+                        )}
+                    </div>
                 </div>
                 {utilityButtonsContainer}
-            </div>
+            </>
         );
     }
 }
