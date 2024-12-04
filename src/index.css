@@ -77,6 +77,7 @@ button:hover {
 }
 
 .scoreboard {
+    width: 250px;
     display: grid;
     height: 70px;
 
@@ -159,6 +160,7 @@ button:hover {
 }
 
 .shuffler {
+    width: 250px;
     justify-self: center;
 
     display: grid;
