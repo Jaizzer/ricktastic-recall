@@ -337,6 +337,7 @@ button {
 
     align-self: end;
     font-family: 'Rick and Morty';
+    font-size: 20px;
 
     padding: 25px;
     background-color: rgb(18, 30, 62);
