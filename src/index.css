@@ -215,6 +215,8 @@ button {
 
 .utility-buttons-container button {
     border-radius: 100px;
+    width: 40px;
+    height: 40px;
 }
 
 .sound-button-icon,
@@ -226,6 +228,21 @@ button {
     align-content: center;
     width: 20px;
     height: 20px;
+}
+
+.close-instruction-button-icon {
+    width: 15px;
+    height: 15px;
+}
+
+.instruction .close-instruction-button {
+    justify-self: start;
+    width: 20px;
+    height: 20px;
+}
+
+.instruction .close-instruction-button-icon {
+    scale: 0.5;
 }
 
 .instruction-button {

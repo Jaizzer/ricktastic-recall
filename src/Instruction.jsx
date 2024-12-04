@@ -27,7 +27,7 @@ export default function Instruction({ areSfxEnabled }) {
             <button className="instruction-button" onClick={handleClick}>
                 <img
                     src={isInstructionVisible ? closeIcon : instructionIcon}
-                    className="instruction-button-icon"
+                    className={isInstructionVisible ? 'close-instruction-button-icon' : 'instruction-button-icon'}
                 />
             </button>
             {isInstructionVisible && (
@@ -37,7 +37,7 @@ export default function Instruction({ areSfxEnabled }) {
                             className="close-instruction-button"
                             onClick={handleClick}
                         >
-                            x
+                            <img src={closeIcon} className='close-instruction-button-icon' />
                         </button>
                         <div className="description">
                             <p>
