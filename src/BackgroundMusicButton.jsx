@@ -7,6 +7,7 @@ import musicOffIcon from './assets/music-off.png';
 export default function BackgroundMusicButton({ areSfxEnabled }) {
     const [isPlaying, setIsPlaying] = useState(false);
     const backgroundMusicRef = useRef(new Audio(backgroundMusic));
+    backgroundMusicRef.loop = true;
 
     const buttonClickSfxRef = useRef(new Audio(buttonClickSfx));
 
