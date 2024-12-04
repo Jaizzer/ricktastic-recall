@@ -116,7 +116,6 @@ button:hover {
     justify-content: center;
 }
 
-
 .container:hover {
     filter: brightness(1.25);
 }
@@ -191,7 +190,7 @@ button:hover {
     align-self: center;
 
     display: grid;
-
+    grid-template-rows: repeat(2, auto) 50px;
     justify-content: center;
     align-items: center;
     justify-items: center;
@@ -199,11 +198,32 @@ button:hover {
     gap: 20px;
 }
 
+.welcome .home-button {
+    grid-row: 1 / 2;
+}
+
 .difficulty-selector {
+    grid-row: 2 / 3;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+}
+
+.difficulty-level {
+    grid-row: 3 / 4;
+    font-size: 25px;
+    font-family: 'Rick and Morty';
+    color: white;
+
+    width: 130px;
+
+    background-color: rgb(18, 30, 62);
+    padding: 10px;
+    border-radius: 5px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
 }
 
 button {

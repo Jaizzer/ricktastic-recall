@@ -10,6 +10,7 @@ import soundOnIcon from './assets/sound-on.png';
 export default function App() {
     const [characters, setCharacters] = useState(null);
     const [areSfxEnabled, setAreSfxEnabled] = useState(true);
+    const [difficultyToDisplay, setDifficultyToDisplay] = useState(null);
 
     const buttonClickSfxRef = useRef(new Audio(buttonClickSfx));
 
@@ -85,6 +86,12 @@ export default function App() {
                 onClick={() => {
                     handleDifficultyClick(5);
                 }}
+                onMouseEnter={() => {
+                    setDifficultyToDisplay(5);
+                }}
+                onMouseLeave={() => {
+                    setDifficultyToDisplay(null);
+                }}
             >
                 Meeseeks
             </button>
@@ -92,6 +99,12 @@ export default function App() {
                 className="difficulty-button"
                 onClick={() => {
                     handleDifficultyClick(10);
+                }}
+                onMouseEnter={() => {
+                    setDifficultyToDisplay(10);
+                }}
+                onMouseLeave={() => {
+                    setDifficultyToDisplay(null);
                 }}
             >
                 Schiwfty
@@ -101,6 +114,12 @@ export default function App() {
                 onClick={() => {
                     handleDifficultyClick(15);
                 }}
+                onMouseEnter={() => {
+                    setDifficultyToDisplay(15);
+                }}
+                onMouseLeave={() => {
+                    setDifficultyToDisplay(null);
+                }}
             >
                 Gazorpazorp
             </button>
@@ -109,6 +128,12 @@ export default function App() {
                 onClick={() => {
                     handleDifficultyClick(25);
                 }}
+                onMouseEnter={() => {
+                    setDifficultyToDisplay(25);
+                }}
+                onMouseLeave={() => {
+                    setDifficultyToDisplay(null);
+                }}
             >
                 Interdimensional
             </button>
@@ -116,6 +141,12 @@ export default function App() {
                 className="difficulty-button"
                 onClick={() => {
                     handleDifficultyClick(50);
+                }}
+                onMouseEnter={() => {
+                    setDifficultyToDisplay(50);
+                }}
+                onMouseLeave={() => {
+                    setDifficultyToDisplay(null);
                 }}
             >
                 EvilMorty
@@ -156,6 +187,12 @@ export default function App() {
                             }}
                         ></HomeButton>
                         {difficultySelector}
+
+                        {difficultyToDisplay && (
+                            <div className="difficulty-level">
+                                {difficultyToDisplay} cards
+                            </div>
+                        )}
                     </div>
                     {utilityButtonsContainer}
                 </div>
