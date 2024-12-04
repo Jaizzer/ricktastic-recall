@@ -262,7 +262,7 @@ button {
 }
 
 .pop-up-message {
-    font-family: "Rick and Morty";
+    font-family: 'Rick and Morty';
     font-size: 50px;
     color: white;
 
@@ -284,6 +284,26 @@ button {
     gap: 20px;
 
     background-color: rgb(18, 30, 62);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.message {
+    z-index: 2;
+    width: fit-content;
+    justify-self: center;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 120px;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: #000000;
+}
+
+.pop-up-message-background {
+    position: absolute;
+    width: 100%;
+    filter: blur(1.5px);
 }
 
 .actions {
@@ -295,6 +315,7 @@ button {
 
 .actions button {
     width: 160px;
+    border: 1.5px solid black;
 }
 
 .instruction-container {

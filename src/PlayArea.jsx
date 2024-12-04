@@ -5,7 +5,9 @@ import gameOverSfx from './assets/game-over.wav';
 import buttonClickSfx from './assets/button-click.wav';
 import victorySfx from './assets/victory.wav';
 import portalImageUrl from './assets/portal.jpg';
-import shuffleIcon from './assets/shuffle.png'
+import shuffleIcon from './assets/shuffle.png';
+import defeatImage from './assets/defeat.jpg';
+import victoryImage from './assets/victory.avif';
 
 export default function PlayArea({
     newCharacters,
@@ -115,6 +117,10 @@ export default function PlayArea({
 
         popUpMessage = (
             <div className="pop-up-message">
+                <img
+                    src={gameIsWon ? victoryImage : defeatImage}
+                    className="pop-up-message-background"
+                />
                 <div className="message">{message}</div>
                 <div className="actions">
                     <button
@@ -164,7 +170,10 @@ export default function PlayArea({
                             ]);
                         }}
                     >
-                        <img src={shuffleIcon} className='shuffle-button-icon' />
+                        <img
+                            src={shuffleIcon}
+                            className="shuffle-button-icon"
+                        />
                         Shuffle Cards
                     </button>
                     <div className="deck">{cards}</div>
