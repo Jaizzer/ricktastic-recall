@@ -78,9 +78,11 @@ export default function PlayArea({
         }
 
         // Increment the keys of all characters to force a render
-        let charactersWithIncrementedKey = currentCharacters.map(currentCharacter => {
-            return {...currentCharacter, id: currentCharacter.id + 1}
-        } )
+        let charactersWithIncrementedKey = currentCharacters.map(
+            (currentCharacter) => {
+                return { ...currentCharacter, id: currentCharacter.id + 1 };
+            }
+        );
 
         // Shuffle cards and update the state
         setCurrentCharacters([...shuffleArray(charactersWithIncrementedKey)]);
@@ -157,8 +159,17 @@ export default function PlayArea({
                     <button
                         className="shuffler"
                         onClick={() => {
+                            // Inrement the character id to force rerender on all cards
+                            let charactersWithIncrementedKey = currentCharacters.map((currentCharacter) => {
+                                return {
+                                    ...currentCharacter,
+                                    id: currentCharacter.id + 1,
+                                };
+                            });
+
+                            // Shuffle the characters
                             setCurrentCharacters([
-                                ...shuffleArray(currentCharacters),
+                                ...shuffleArray(charactersWithIncrementedKey),
                             ]);
                         }}
                     >
