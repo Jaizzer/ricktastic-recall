@@ -116,19 +116,17 @@ button:hover {
     justify-content: center;
 }
 
+
+.container:hover {
+    filter: brightness(1.25);
+}
+
 .card {
     width: 250px;
     height: 300px;
     position: relative;
     transform-style: preserve-3d;
     animation: rotateCard 0.7s 1 alternate;
-    will-change: transform, filter;
-    transition: transform 0.1s;
-}
-
-.card:hover {
-    filter: brightness(1.2);
-    transform: scale(1.1);
 }
 
 .front,
