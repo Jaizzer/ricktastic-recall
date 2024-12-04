@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import backgroundMusic from './assets/background-music.mp3';
 import buttonClickSfx from './assets/button-click.wav';
 import musicOnIcon from './assets/music-on.png';
