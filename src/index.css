@@ -22,6 +22,7 @@ body {
 button {
     font-size: 22px;
     font-family: 'Rick and Morty';
+    color: black;
 
     will-change: transform;
     transition: transform 0.1s;
