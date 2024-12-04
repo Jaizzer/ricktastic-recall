@@ -327,9 +327,23 @@ button {
 }
 
 .pop-up-message-background {
+    justify-self: center;
+    align-self: center;
     position: absolute;
     width: 100%;
     filter: blur(1.5px);
+}
+
+@media screen and (max-width: 800px) {
+    .message {
+        font-size: 60px;
+        -webkit-text-stroke-width: 2px;
+    }
+
+    .pop-up-message-background {
+        width: auto;
+        height: 100%;
+    }
 }
 
 .actions {
