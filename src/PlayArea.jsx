@@ -91,10 +91,11 @@ export default function PlayArea({
     let cards = [];
     for (let i = 0; i < numberOfCardsToShow; i++) {
         let currentCharacter = currentCharacters[i];
+        let adderValue = currentScore ? currentScore : 0
         cards.push(
             <Card
                 imageUrl={currentCharacter.image}
-                key={Math.floor(Math.random() * 1000)}
+                key={currentCharacter.id + adderValue}
                 onClick={() => {
                     updatePlayArea(currentCharacter.id);
                 }}
