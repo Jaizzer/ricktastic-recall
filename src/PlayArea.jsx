@@ -7,7 +7,7 @@ import victorySfx from './assets/victory.wav';
 import portalImageUrl from './assets/portal.jpg';
 import shuffleIcon from './assets/shuffle.png';
 import defeatImage from './assets/defeat.jpg';
-import victoryImage from './assets/victory.avif';
+import victoryImage from './assets/victory.jpg';
 
 export default function PlayArea({
     newCharacters, // Array of new character objects
