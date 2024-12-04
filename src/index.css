@@ -262,6 +262,10 @@ button {
 }
 
 .pop-up-message {
+    font-family: "Rick and Morty";
+    font-size: 50px;
+    color: white;
+    
     justify-self: center;
 
     width: 80%;
