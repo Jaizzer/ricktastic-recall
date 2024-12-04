@@ -83,7 +83,7 @@ export default function App() {
             <button
                 className="difficulty-button"
                 onClick={() => {
-                    handleDifficultyClick(10);
+                    handleDifficultyClick(5);
                 }}
             >
                 Meeseeks
@@ -91,7 +91,7 @@ export default function App() {
             <button
                 className="difficulty-button"
                 onClick={() => {
-                    handleDifficultyClick(15);
+                    handleDifficultyClick(10);
                 }}
             >
                 Schiwfty
@@ -99,7 +99,7 @@ export default function App() {
             <button
                 className="difficulty-button"
                 onClick={() => {
-                    handleDifficultyClick(20);
+                    handleDifficultyClick(15);
                 }}
             >
                 Gazorpazorp
@@ -115,7 +115,7 @@ export default function App() {
             <button
                 className="difficulty-button"
                 onClick={() => {
-                    handleDifficultyClick(30);
+                    handleDifficultyClick(50);
                 }}
             >
                 EvilMorty
