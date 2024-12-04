@@ -115,7 +115,7 @@ button:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 10px;
 
     justify-content: center;
 }
@@ -125,8 +125,10 @@ button:hover {
 }
 
 .card {
-    width: 250px;
-    height: 300px;
+    width: 10vw;
+    height: 15vw;
+    min-width: 120px;
+    min-height: 130px;
     position: relative;
     transform-style: preserve-3d;
     animation: rotateCard 0.7s 1 alternate;
