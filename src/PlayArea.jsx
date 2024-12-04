@@ -77,8 +77,13 @@ export default function PlayArea({
             new Audio(victorySfx).play();
         }
 
+        // Increment the keys of all characters to force a render
+        let charactersWithIncrementedKey = currentCharacters.map(currentCharacter => {
+            return {...currentCharacter, id: currentCharacter.id + 1}
+        } )
+
         // Shuffle cards and update the state
-        setCurrentCharacters([...shuffleArray(currentCharacters)]);
+        setCurrentCharacters([...shuffleArray(charactersWithIncrementedKey)]);
     }
 
     // Generate cards for the play area
@@ -86,11 +91,10 @@ export default function PlayArea({
     const cards = [];
     for (let i = 0; i < numberOfCardsToShow; i++) {
         const currentCharacter = currentCharacters[i];
-        const keyOffset = currentScore ? currentScore : 0; // Force re-render by modifying the key
         cards.push(
             <Card
                 imageUrl={currentCharacter.image}
-                key={currentCharacter.id + keyOffset}
+                key={currentCharacter.id}
                 onClick={() => updatePlayArea(currentCharacter.id)}
             />
         );
