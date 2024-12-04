@@ -10,112 +10,101 @@ import defeatImage from './assets/defeat.jpg';
 import victoryImage from './assets/victory.avif';
 
 export default function PlayArea({
-    newCharacters,
-    requestNewCharacters,
-    goBackToMenu,
-    areSfxEnabled,
+    newCharacters, // Array of new character objects
+    requestNewCharacters, // Function to request a new set of characters
+    goBackToMenu, // Function to navigate back to the menu
+    areSfxEnabled, // Boolean to toggle sound effects
 }) {
+    // State to manage the characters displayed in the game
     const [currentCharacters, setCurrentCharacters] = useState(
-        newCharacters.map((newCharacter) => {
-            // Add click count property
-            return { ...newCharacter, clickCount: 0 };
-        })
+        newCharacters.map((newCharacter) => ({
+            ...newCharacter,
+            clickCount: 0, // Add clickCount to track card clicks
+        }))
     );
 
-    // Save reference to the card slide sfx to prevent multiple instantiation on re-renders
+    // Sound effects references to avoid re-instantiating audio on every render
     const cardSlideSfxRef = useRef(new Audio(cardSlideSfx));
-
-    // Save reference to the game over sfx to prevent multiple instantiation on re-renders
     const gameOverSfxRef = useRef(new Audio(gameOverSfx));
-
-    // Save reference to the click button sfx to prevent multiple instantiation on re-renders
     const buttonClickSfxRef = useRef(new Audio(buttonClickSfx));
 
-    // Play card slide audio if SFX are enabled
+    // Play card slide sound if sound effects are enabled
     if (areSfxEnabled) {
         cardSlideSfxRef.current.play();
     }
 
-    // Use the newly sent newCharacters prop as the currentCharacters
+    // Update currentCharacters whenever newCharacters prop changes
     useEffect(() => {
         setCurrentCharacters(
-            newCharacters.map((newCharacter) => {
-                // Add click count property
-                return { ...newCharacter, clickCount: 0 };
-            })
+            newCharacters.map((newCharacter) => ({
+                ...newCharacter,
+                clickCount: 0, // Reset click count for new game
+            }))
         );
     }, [newCharacters]);
 
-    // Track high scores
+    // State to track the high score
     const [highScore, setHighScore] = useState(0);
 
-    // Get current score
+    // Compute the current score based on the click counts of the characters
     let currentScore = getCurrentScore(currentCharacters);
 
+    // Function to handle card click updates
     function updatePlayArea(cardId) {
-        // Find the object corresponding to the clicked card
-        const correspondingObjectOfTheClickedCard = currentCharacters.find(
-            (currentCharacter) => currentCharacter.id === cardId
+        // Find the card that was clicked
+        const correspondingCard = currentCharacters.find(
+            (character) => character.id === cardId
         );
 
-        // Increment the card's click count through the corresponding object
-        correspondingObjectOfTheClickedCard.clickCount++;
+        // Increment the click count for the clicked card
+        correspondingCard.clickCount++;
 
-        // Calculate the currents score that would appear on the next render
-        const nextRenderCurrentScore = getCurrentScore(currentCharacters);
+        // Calculate the score for the next render
+        const nextScore = getCurrentScore(currentCharacters);
 
-        // Update if the high score is beaten by the next render current score
-        if (highScore < nextRenderCurrentScore) {
-            setHighScore(nextRenderCurrentScore);
+        // Update high score if the current score exceeds it
+        if (highScore < nextScore) {
+            setHighScore(nextScore);
         }
 
-        // Play game over sound if player clicked a card twice
+        // Play game over sound if a card is clicked twice
         if (getCurrentScore(currentCharacters) === null && areSfxEnabled) {
             gameOverSfxRef.current.play();
         }
 
-        // Play victory sound if player won
-        if (
-            nextRenderCurrentScore === currentCharacters.length &&
-            areSfxEnabled
-        ) {
+        // Play victory sound if all cards are clicked correctly
+        if (nextScore === currentCharacters.length && areSfxEnabled) {
             new Audio(victorySfx).play();
         }
 
-        // Update the currentCharacters state
+        // Shuffle cards and update the state
         setCurrentCharacters([...shuffleArray(currentCharacters)]);
     }
 
-    // Create cards
-    let numberOfCardsToShow = 5;
-    let cards = [];
+    // Generate cards for the play area
+    const numberOfCardsToShow = 5;
+    const cards = [];
     for (let i = 0; i < numberOfCardsToShow; i++) {
-        let currentCharacter = currentCharacters[i];
-        let adderValue = currentScore ? currentScore : 0
+        const currentCharacter = currentCharacters[i];
+        const keyOffset = currentScore ? currentScore : 0; // Force re-render by modifying the key
         cards.push(
             <Card
                 imageUrl={currentCharacter.image}
-                key={currentCharacter.id + adderValue}
-                onClick={() => {
-                    updatePlayArea(currentCharacter.id);
-                }}
-            ></Card>
+                key={currentCharacter.id + keyOffset}
+                onClick={() => updatePlayArea(currentCharacter.id)}
+            />
         );
     }
 
-    // Display a Victory or Game Over message depending on the user's score.
-    let popUpMessage;
+    // Determine if the game is over or won
     const gameIsLost = currentScore === null;
     const gameIsWon = currentScore === currentCharacters.length;
     const gameEnded = gameIsLost || gameIsWon;
-    if (gameEnded) {
-        let message;
-        if (gameIsWon) {
-            message = 'Victory';
-        } else if (gameIsLost) {
-            message = 'You Lost';
-        }
 
+    // Conditionally render the victory or game-over message
+    let popUpMessage;
+    if (gameEnded) {
+        const message = gameIsWon ? 'Victory' : 'You Lost';
         popUpMessage = (
             <div className="pop-up-message">
                 <img
@@ -127,7 +116,6 @@ export default function PlayArea({
                     <button
                         className="restart"
                         onClick={() => {
-                            // Play button sound fx if sfx are enabled
                             if (areSfxEnabled) {
                                 buttonClickSfxRef.current.play();
                             }
@@ -139,7 +127,6 @@ export default function PlayArea({
                     <button
                         className="menu"
                         onClick={() => {
-                            // Play button sound fx if sfx are enabled
                             if (areSfxEnabled) {
                                 buttonClickSfxRef.current.play();
                             }
@@ -162,7 +149,7 @@ export default function PlayArea({
                     <Scoreboard
                         currentScore={currentScore}
                         highScore={highScore}
-                    ></Scoreboard>
+                    />
                     <button
                         className="shuffler"
                         onClick={() => {
@@ -187,6 +174,7 @@ export default function PlayArea({
     );
 }
 
+// Card component for displaying individual cards
 function Card({ imageUrl, onClick }) {
     return (
         <div className="container">
@@ -198,31 +186,25 @@ function Card({ imageUrl, onClick }) {
     );
 }
 
+// Function to shuffle an array using the Fisher-Yates algorithm
 function shuffleArray(array) {
-    // Use array length to include the last element when generating random index
     let currentIndex = array.length;
-
     while (currentIndex !== 0) {
-        // Pick the remaining element
-        let randomIndex = Math.floor(Math.random() * currentIndex);
-
-        // Exclude the previously swapped element
+        const randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
-
-        // Swap elements
         [array[currentIndex], array[randomIndex]] = [
             array[randomIndex],
             array[currentIndex],
         ];
     }
-
     return array;
 }
 
+// Function to calculate the current score based on the click count
 function getCurrentScore(currentCharacters) {
-    return currentCharacters.reduce((accumulator, currentCharacter) => {
-        if (accumulator === null) return null;
-        if (currentCharacter.clickCount >= 2) return null;
-        return accumulator + currentCharacter.clickCount;
+    return currentCharacters.reduce((accumulator, character) => {
+        if (accumulator === null) return null; // Game over if a card is clicked twice
+        if (character.clickCount >= 2) return null;
+        return accumulator + character.clickCount; // Accumulate valid clicks
     }, 0);
 }
