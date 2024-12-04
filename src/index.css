@@ -172,6 +172,7 @@ button:hover {
 .tracker {
     font-family: 'Rick and Morty';
     font-size: 40px;
+    color: white;
     justify-self: center;
 }
 
@@ -293,6 +294,8 @@ button {
     background-color: #00353e;
     border-radius: 20px;
     margin-bottom: 70px;
+
+    color: white;
 
     display: grid;
 }
