@@ -160,12 +160,13 @@ export default function PlayArea({
                         className="shuffler"
                         onClick={() => {
                             // Inrement the character id to force rerender on all cards
-                            let charactersWithIncrementedKey = currentCharacters.map((currentCharacter) => {
-                                return {
-                                    ...currentCharacter,
-                                    id: currentCharacter.id + 1,
-                                };
-                            });
+                            let charactersWithIncrementedKey =
+                                currentCharacters.map((currentCharacter) => {
+                                    return {
+                                        ...currentCharacter,
+                                        id: currentCharacter.id + 1,
+                                    };
+                                });
 
                             // Shuffle the characters
                             setCurrentCharacters([
